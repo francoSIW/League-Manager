@@ -8,9 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/Franco/Vagrant4SIW-master/lib/xmlschema-core-2.0.3.jar"/>
-	<classpathentry kind="lib" path="/Users/Franco/Vagrant4SIW-master/lib/xbean-reflect-3.12.jar"/>
-	<classpathentry kind="lib" path="/Users/Franco/Vagrant4SIW-master/lib/xbean-naming-3.12.jar"/>
 	<classpathentry kind="lib" path="/Users/Franco/Vagrant4SIW-master/lib/xbean-finder-shaded-3.12.jar"/>
 	<classpathentry kind="lib" path="/Users/Franco/Vagrant4SIW-master/lib/xbean-bundleutils-3.12.jar"/>
 	<classpathentry kind="lib" path="/Users/Franco/Vagrant4SIW-master/lib/xbean-asm-shaded-3.12.jar"/>
