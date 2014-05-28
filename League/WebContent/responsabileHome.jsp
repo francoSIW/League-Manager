@@ -12,12 +12,7 @@
 <body>
 	<f:view>
 		<h1>ciao ${responsabileController.responsabile.nome}!</h1>
-		
-			 <jsp:useBean id="emp" class="it.uniroma3.controller.SquadraController" scope="session" />
-        
-    <jsp:setProperty name="emp" property="responsabile" value="#{responsabileController.responsabile}"/>
-		
-		<ul>
+			<ul>
 			<li><a href='<c:url value="/faces/newSquadra.jsp" />'>Iscrivi una squadra!</a></li>
 			<li><h:form>
 					<h:commandLink action="#{squadraController.listaSquadre}"

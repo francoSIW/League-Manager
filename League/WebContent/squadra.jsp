@@ -9,13 +9,26 @@
 </head>
 <body>
 <f:view>
-
 <h1>Nome: ${squadraController.squadra.nome}</h1>
 <h2>Details</h2>
 <div>Code: ${squadraController.squadra.coloriSociali}</div>
+<div>Contatta il responsabile: 
+<ul><li>${squadraController.squadra.responsabile.nome} ${squadraController.squadra.responsabile.cognome}</li>
+<li>all'indirizzo: ${squadraController.squadra.responsabile.email}</li></ul>
+</div>
 	<div>
-		<a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Aggiungi giocatori</a>
-		<li><a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a></li>
+		<c:choose>
+		<c:when test="${responsabileController.responsabile != null}">  
+		<ul>
+         <li> <a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Aggiungi giocatori</a></li>
+          <li><a href='<c:url value="/faces/responsabileHome.jsp" />'>Torna alla Home</a></li>
+         </ul>
+        </c:when>
+       <c:otherwise>
+       		<a href='<c:url value="/faces/index.jsp" />'>Torna all' indice</a>
+       
+       </c:otherwise>
+	</c:choose>
 	</div>
 	<table>
 	<tr>

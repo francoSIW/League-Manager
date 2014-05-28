@@ -9,13 +9,13 @@
 </head>
 <body>
 <f:view>
-
+<h3>hai appena iscritto la squadra: </h3>
 <h1>Nome: ${squadraController.squadra.nome}</h1>
 <h2>Details</h2>
-<div>Code: ${squadraController.squadra.coloriSociali}</div>
+<div>Colori sociali: ${squadraController.squadra.coloriSociali}</div>
 	<div>
 		<a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Aggiungi giocatori</a>
-		<li><a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a></li>
+		<a href='<c:url value="/faces/responsabileHome.jsp" />'>Torna alla Home</a>
 	</div>
 </f:view>
 </body>

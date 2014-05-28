@@ -84,7 +84,7 @@ public class Squadra {
 		this.partiteInCasa = partiteInCasa;
 	}
 
-/*
+
 	public ResponsabileSquadra getResponsabile() {
 		return responsabile;
 	}
@@ -93,7 +93,7 @@ public class Squadra {
 	public void setResponsabile(ResponsabileSquadra responsabile) {
 		this.responsabile = responsabile;
 	}
-*/
+
 	public List<Partita> getPartiteFuori() {
 		return partiteFuori;
 	}

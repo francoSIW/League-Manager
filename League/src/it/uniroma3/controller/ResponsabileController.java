@@ -2,6 +2,11 @@ package it.uniroma3.controller;
 
 
 import it.uniroma3.model.ResponsabileFacade;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
 import it.uniroma3.model.ResponsabileSquadra;
 
 import java.util.Date;
@@ -31,8 +36,9 @@ public class ResponsabileController {
 	
 	public String login(){
 		this.responsabile = responsabileFacade.autentica(this.email, this.password);
-		if(this.responsabile!=null)
-			return "logged";
+		if(this.responsabile!=null) {
+		return "logged";
+		}
 		else {
 			
 			return "errore";

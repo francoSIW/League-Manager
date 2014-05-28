@@ -73,9 +73,9 @@ public class SquadraController {
 	}
 
 	
-	public String createSquadra() { 
-		
-		this.squadra = squadraFacade.createSquadra(this.nomeSquadra, this.colori, this.via, this.responsabile);
+	public String createSquadra(ResponsabileSquadra responsabile) { 
+		this.responsabile = responsabile;
+		this.squadra = squadraFacade.createSquadra(this.nomeSquadra, this.colori, this.via, responsabile);
 		return "squadraIscritta"; 
 		}
 
