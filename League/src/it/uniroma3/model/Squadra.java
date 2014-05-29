@@ -31,7 +31,7 @@ public class Squadra {
 	@OneToMany(mappedBy="squadra", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch=FetchType.EAGER)
 	private List<Giocatore> giocatori;
 	
-	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH}, fetch=FetchType.EAGER)
+	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private ResponsabileSquadra responsabile;
 
 	

@@ -40,6 +40,10 @@
       <from-outcome>errore</from-outcome>
       <to-view-id>/riprovaLogin.jsp</to-view-id>
    </navigation-case>
+         <navigation-case>
+      <from-outcome>squadra</from-outcome>
+      <to-view-id>/squadra.jsp</to-view-id>
+   </navigation-case>
       <navigation-case>
       <from-outcome>squadre</from-outcome>
       <to-view-id>/squadre.jsp</to-view-id>

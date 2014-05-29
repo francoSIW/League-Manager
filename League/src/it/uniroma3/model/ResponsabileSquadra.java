@@ -22,7 +22,7 @@ public class ResponsabileSquadra {
 
 	
 
-	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH}, fetch=FetchType.EAGER)
+	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}, fetch=FetchType.EAGER)
 	@JoinColumn(name="squadra_id")
 	private Squadra squadra;
 	

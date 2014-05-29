@@ -14,7 +14,7 @@
 	<f:view>
 		<h1>----LEAGUE MANAGER-----</h1>
 
-		<!-- Se l'utente è loggato come responsabile di una squadra mostra questo... -->
+		<!-- Se l'utente �� loggato come responsabile di una squadra mostra questo... -->
 
 		<div>
 			<c:choose>
@@ -24,7 +24,7 @@
 					<ul>
 						<h:form>
 				<c:choose>
-				<c:when test="${squadraController.responsabile.squadra != null}">
+				<c:when test="${responsabileController.responsabile.squadra != null}">
 							<h:commandLink action="#{squadraController.findSquadra}"
 								value="Vai alla tua squadra">
 								<f:param name="id"
