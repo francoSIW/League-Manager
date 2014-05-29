@@ -5,40 +5,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Squadra</title>
+<title>LEAGUE MANAGER - RIEPILOGO SQUADRA</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <f:view>
-<h1>Nome: ${squadraController.squadra.nome}</h1>
-<h2>Details</h2>
-<div>Code: ${squadraController.squadra.coloriSociali}</div>
-<div>Contatta il responsabile: 
-<ul><li>${squadraController.squadra.responsabile.nome} ${squadraController.squadra.responsabile.cognome}</li>
-<li>all'indirizzo: ${squadraController.squadra.responsabile.email}</li></ul>
+<h1><font style="text-transform: uppercase;">${squadraController.squadra.nome}</font></h1>
+<h3>DETTAGLI SQUADRA</h3>
+<div>Colori: ${squadraController.squadra.coloriSociali}</div>
+
+	<div> 
+	<div>Responsabile: ${squadraController.squadra.responsabile.nome} ${squadraController.squadra.responsabile.cognome}
 </div>
-	<div>
-		<c:choose>
-		<c:when test="${responsabileController.responsabile != null}">  
-		<ul>
-         <li> <a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Aggiungi giocatori</a></li>
-          <li><a href='<c:url value="/faces/responsabileHome.jsp" />'>Torna alla Home</a></li>
-         </ul>
-        </c:when>
-       <c:otherwise>
-       		<a href='<c:url value="/faces/index.jsp" />'>Torna all' indice</a>
-       
-       </c:otherwise>
-	</c:choose>
+<div>Contatto mail responsabile: ${squadraController.squadra.responsabile.email}
+</div>
+
 	</div>
+	<h3>ELENCO GIOCATORI</h3>
 	<table>
 	<tr>
-		<th>Nome giocatore</th><th>Cognome</th><th>Numero maglia</th>
+		<th>Nome</th><th>Cognome</th><th>No. maglia</th>
 	</tr>
 	<c:forEach var="giocatore" items="#{squadraController.giocatori}">
 		<tr><td>${giocatore.nome}
 		</td><td>${giocatore.cognome}</td><td>${giocatore.numeroMaglia}</td></tr>
 	</c:forEach>
 </table>
+
+		<c:choose>
+		<c:when test="${responsabileController.responsabile != null}">  
+				<ul>
+         <li> <a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Aggiungi giocatori</a></li>
+          <li><a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a></li>
+         </ul>
+        </c:when>
+       <c:otherwise>
+       </br>
+       		<a href='<c:url value="/faces/index.jsp" />'>Torna all' indice</a>
+       
+       </c:otherwise>
+	</c:choose>
+		
+
+
 </f:view>
 </body>
 </html>

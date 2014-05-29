@@ -7,9 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>LEAGUE MANAGER</title>
+<title>LEAGUE MANAGER - CALENDARIO</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 	<f:view>
 		<h1>Calendario creato!</h1>
 		<ul>

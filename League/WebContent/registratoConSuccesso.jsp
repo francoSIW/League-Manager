@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>LEAGUE MANAGER - REGISTRAZIONE EFFETTUATA</title>
+<title>LEAGUE MANAGER - REGISTRAZIONE EFFETTUATA!</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <f:view>
 
 <h1>Registrazione effettuata con successo!</h1>
 	<div>
-		<a href='<c:url value="/faces/responsabileHome.jsp" />'>Vai alla Home</a>
+		<a href='<c:url value="/faces/index.jsp" />'>Vai alla Home</a>
 	</div>
 </f:view>
 </body>

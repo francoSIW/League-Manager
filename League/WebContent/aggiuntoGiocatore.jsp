@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Giocatore aggiunto!</title>
+<title>LEAGUE MANAGER - GIOCATORE AGGIUNTO!</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <f:view>
 <h:form>
 	<div>

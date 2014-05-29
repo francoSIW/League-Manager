@@ -46,7 +46,11 @@
    </navigation-case>
       <navigation-case>
       <from-outcome>logged</from-outcome>
-      <to-view-id>/responsabileHome.jsp</to-view-id>
+      <to-view-id>/index.jsp</to-view-id>
+   </navigation-case>
+         <navigation-case>
+      <from-outcome>logout</from-outcome>
+      <to-view-id>/index.jsp</to-view-id>
    </navigation-case>
 </navigation-rule>
    
@@ -86,12 +90,6 @@
    </navigation-case>
    </navigation-rule>
 
-
-    <navigation-rule>
-   <from-view-id>/index.jsp</from-view-id>
-
-</navigation-rule>
-
     <navigation-rule>
    <from-view-id>/squadre.jsp</from-view-id>
    <navigation-case>
@@ -104,24 +102,12 @@
    </navigation-case>
    </navigation-rule>
  
- <navigation-rule>
-   <from-view-id>/responsabileHome.jsp</from-view-id>
-	   <navigation-case>
-      <from-outcome>squadre</from-outcome>
-      <to-view-id>/squadre.jsp</to-view-id>
-   </navigation-case>
-   	   <navigation-case>
-      <from-outcome>partite</from-outcome>
-      <to-view-id>/calendario.jsp</to-view-id>
-   </navigation-case>
-</navigation-rule>
-
 
 <navigation-rule>
    <from-view-id>/riprovaLogin.jsp</from-view-id>
    <navigation-case>
       <from-outcome>logged</from-outcome>
-      <to-view-id>/responsabileHome.jsp</to-view-id>
+      <to-view-id>/index.jsp</to-view-id>
    </navigation-case>
 </navigation-rule>
 

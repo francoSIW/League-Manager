@@ -7,9 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title> </title>
+<title>LEAGUE MANAGER - OPS! </title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <h1>qualcosa e' andato storto..</h1>
 <f:view>
 <h:form>

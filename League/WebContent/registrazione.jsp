@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Registrazione</title>
+<title>LEAGUE MANAGER - REGISTRAZIONE</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <hgroup>
 <h1>BENVENUTO IN LEAGUE MANAGER</h1>
 <h2>inserisci i tuoi dati</h2>

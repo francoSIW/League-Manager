@@ -40,7 +40,7 @@ public class SquadraFacade {
 			return squadre;
 			
 		}
-		
+
 
 	   
 }

@@ -43,10 +43,17 @@ public class ResponsabileController {
 			
 			return "errore";
 		}
-			 
-				
-		
 	}
+			 
+		public String logout() {
+			
+			this.responsabile = null;
+			
+			return "logout";
+		}
+		
+		
+	
 	
 	public String registraResponsabile(){
 		

@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Nuovo Giocatore</title>
+<title>LEAGUE MANAGER - AGGIUNGI GIOCATORE</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <f:view>
 <h2>Giocatori:</h2>
 

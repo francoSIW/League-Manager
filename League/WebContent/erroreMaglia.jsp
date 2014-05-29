@@ -7,9 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>LEAGUE MANAGER - ERRORE!</title>
+<title>LEAGUE MANAGER - OPS!</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <div>Il numero di maglia selezionato e' gia' stato assegnato ad un altro giocatore!</div>
 <div>
 		<a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Torna all'inserimento del giocatore</a>

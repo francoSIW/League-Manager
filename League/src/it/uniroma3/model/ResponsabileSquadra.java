@@ -22,7 +22,7 @@ public class ResponsabileSquadra {
 
 	
 
-	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH}, fetch=FetchType.EAGER)
 	@JoinColumn(name="squadra_id")
 	private Squadra squadra;
 	
@@ -35,7 +35,22 @@ public class ResponsabileSquadra {
 		this.cognome = cognome;
 		this.email = email;
 		this.password = password;
-		//this.squadra = squadra;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Squadra getSquadra() {
+		return squadra;
+	}
+
+	public void setSquadra(Squadra squadra) {
+		this.squadra = squadra;
 	}
 
 	public String getEmail() {

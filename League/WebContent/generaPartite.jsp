@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>TUTTE LE PARTITE DEL TORNEO</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 	<h:form>
 		<table>
 			<tr>
@@ -32,7 +32,7 @@
 							value="#{Partita.squadraA}">
 							<f:param name="id" value="#{partita.id}" />
 						</h:commandLink></td>
-					
+					 
 					<td><h:commandLink action="#{partitaController.findPartita}"
 							value="#{Partita.squadraB}">
 							<f:param name="id" value="#{partita.id}" />

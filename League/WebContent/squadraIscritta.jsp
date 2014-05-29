@@ -7,7 +7,7 @@
 <head>
 <title>Squadraii</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <f:view>
 <h3>hai appena iscritto la squadra: </h3>
 <h1>Nome: ${squadraController.squadra.nome}</h1>
@@ -15,7 +15,7 @@
 <div>Colori sociali: ${squadraController.squadra.coloriSociali}</div>
 	<div>
 		<a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Aggiungi giocatori</a>
-		<a href='<c:url value="/faces/responsabileHome.jsp" />'>Torna alla Home</a>
+		<a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a>
 	</div>
 </f:view>
 </body>

@@ -7,9 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Nuova Squadra</title>
+<title>LEAGUE MANAGER - CREA SQUADRA</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <f:view>
 <h:form>
     <div>Nome: <h:inputText value="#{squadraController.nomeSquadra}" 

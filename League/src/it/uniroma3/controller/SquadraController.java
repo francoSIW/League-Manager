@@ -93,6 +93,8 @@ public class SquadraController {
 		return "squadra";
 	}
 	
+	
+	
 	//get value from "f:param"
 		public String getIdParam(FacesContext fc){
 	 
@@ -100,7 +102,7 @@ public class SquadraController {
 			return params.get("id");
 	 
 		}
-
+		
 	
 	public Long getId() {
 		return id;

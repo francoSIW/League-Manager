@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NamedQuery(name = "trovaSquadre", query = "SELECT s FROM Squadra s")
 @Table(name="squadre")
 public class Squadra {
-	//prova
+
     @Id
     @GeneratedValue
     @Column(name="squadra_id")
@@ -31,7 +31,7 @@ public class Squadra {
 	@OneToMany(mappedBy="squadra", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch=FetchType.EAGER)
 	private List<Giocatore> giocatori;
 	
-	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE}, fetch=FetchType.EAGER)
+	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH}, fetch=FetchType.EAGER)
 	private ResponsabileSquadra responsabile;
 
 	

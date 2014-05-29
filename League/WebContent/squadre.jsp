@@ -5,22 +5,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>League Manager - Classifica</title>
+<title>LEAGUE MANAGER - CLASSIFICA</title>
 </head>
-<body>
+<body style="background-color:#a8f7ff;">
 <f:view>
 <h1>Classifica:</h1>
 <h:form>
 <table>
 	<tr>
-		<th>Nome</th><th>Punti</th>
+		<th>Squadra</th><th>Punti</th>
 	</tr>
 	<c:forEach var="squadra" items="#{squadraController.squadre}">
 		<tr><td>
 		<h:commandLink action="#{squadraController.findSquadra}" value="#{squadra.nome}">
 			<f:param name="id" value="#{squadra.id}" />
 		</h:commandLink>
-		</td><td>${squadra.punti}</td></tr>
+		</td><td align = justify>${squadra.punti}</td></tr>
 	</c:forEach>
 </table>
 </h:form>
