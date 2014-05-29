@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NamedQuery(name = "trovaSquadre", query = "SELECT s FROM Squadra s")
 @Table(name="squadre")
 public class Squadra {
-
+	//prova
     @Id
     @GeneratedValue
     @Column(name="squadra_id")
