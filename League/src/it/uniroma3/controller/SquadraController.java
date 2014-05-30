@@ -38,12 +38,18 @@ public class SquadraController {
 		this.giocatori = giocatori;
 	}
 
+	
+	public List<Squadra> getAllSquadre() {
+		this.squadre = squadraFacade.getAllSquadre();
+		return this.squadre;
+	}
+
+
+
 
 	public List<Squadra> getSquadre() {
 		return squadre;
 	}
-
-
 
 
 	public SquadraFacade getSquadraFacade() {
@@ -85,24 +91,11 @@ public class SquadraController {
 		return "squadre"; 
 	}
 	
-	public String findSquadra() {
-		FacesContext fc = FacesContext.getCurrentInstance();
-		this.id = Long.valueOf(getIdParam(fc)).longValue();
+	public String findSquadra(Long id) {
 		this.squadra = squadraFacade.getSquadra(id);
 		this.giocatori = this.squadra.getGiocatori();	
 		return "squadra";
-	}
-	
-	
-	
-	//get value from "f:param"
-		public String getIdParam(FacesContext fc){
-	 
-			Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
-			return params.get("id");
-	 
 		}
-		
 	
 	public Long getId() {
 		return id;

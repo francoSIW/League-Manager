@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -22,8 +23,8 @@ public class SquadraFacade {
 	   public Squadra createSquadra(String nome, String colori, String via, ResponsabileSquadra responsabile) {
 		Squadra squadra = new Squadra(nome, colori, via, responsabile);
 		responsabile.setSquadra(squadra);
-		      em.merge(responsabile);
-
+		em.merge(responsabile);
+		//em.persist(squadra);
 
 		return squadra;
 	   }
@@ -36,7 +37,7 @@ public class SquadraFacade {
 	  }
 	   
 		public List<Squadra> getAllSquadre() {
-	        List<Squadra> squadre = em.createNamedQuery("trovaSquadre").getResultList();
+	        List<Squadra> squadre = em.createNamedQuery("trovaSquadre", Squadra.class).getResultList();
 			return squadre;
 			
 		}

@@ -57,7 +57,24 @@ public class GiocatoreController {
 		}
 		}
 	
-
+	public String findGiocatore(Long id) {
+		//FacesContext fc = FacesContext.getCurrentInstance();
+		//if(getIdParam(fc) == null) 
+			//return "erroreMaglia";
+		//this.id = Long.valueOf(getIdParam(fc)).longValue();
+		this.giocatore = giocatoreFacade.getGiocatore(id);
+		return "giocatore";
+		
+	}
+	
+	//get value from "f:param"
+	/*	public String getIdParam(FacesContext fc){
+	 
+			Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+			return params.get("id");
+		}
+		*/
+		
 	public Squadra getSquadra() {
 		return squadra;
 	}

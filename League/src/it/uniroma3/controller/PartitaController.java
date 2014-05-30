@@ -44,9 +44,9 @@ public class PartitaController {
 		return "partite";
 	}
 	
-	public String generaPartite() {
-		partitaFacade.generaPartite();
-		return "partite";
+	public String generaPartite(List<Squadra> squadre) {
+		partitaFacade.generaPartite(squadre);
+		return "confermaCalendario";
 	}
 	
 	public String findPartita(long id){

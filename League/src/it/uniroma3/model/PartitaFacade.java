@@ -29,9 +29,7 @@ import javax.persistence.criteria.CriteriaQuery;
 		}
 		 
 		
-		public List<Partita> generaPartite(){
-			     SquadraFacade sf = new SquadraFacade();
-			     List<Squadra> squadre = sf.getAllSquadre();
+		public List<Partita> generaPartite(List<Squadra> squadre){
 			    for(Squadra s1 :  squadre)
 			     for(Squadra s2 :  squadre)
 			      if(!s1.equals(s2))

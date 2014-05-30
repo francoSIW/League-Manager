@@ -17,8 +17,7 @@
 	</tr>
 	<c:forEach var="squadra" items="#{squadraController.squadre}">
 		<tr><td>
-		<h:commandLink action="#{squadraController.findSquadra}" value="#{squadra.nome}">
-			<f:param name="id" value="#{squadra.id}" />
+		<h:commandLink action="#{squadraController.findSquadra(squadra.id)}" value="#{squadra.nome}">
 		</h:commandLink>
 		</td><td align = justify>${squadra.punti}</td></tr>
 	</c:forEach>

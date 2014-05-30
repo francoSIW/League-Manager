@@ -14,7 +14,7 @@
 	<f:view>
 		<h1>----LEAGUE MANAGER-----</h1>
 
-		<!-- Se l'utente �� loggato come responsabile di una squadra mostra questo... -->
+		<!-- Se l'utente e' loggato come responsabile di una squadra mostra questo... -->
 
 		<div>
 			<c:choose>
@@ -25,10 +25,10 @@
 						<h:form>
 				<c:choose>
 				<c:when test="${responsabileController.responsabile.squadra != null}">
+					<f:param name="id"
+									value="#{squadraController.squadra.id}" />
 							<h:commandLink action="#{squadraController.findSquadra}"
 								value="Vai alla tua squadra">
-								<f:param name="id"
-									value="#{responsabileController.responsabile.squadra.id}" />
 							</h:commandLink>
 							</c:when>
 											<c:otherwise>
@@ -92,6 +92,10 @@
 					<li><h:form>
 							<h:commandLink action="#{squadraController.listaSquadre}"
 								value="Visualizza la classifica" />
+						</h:form></li>
+											<li><h:form>
+							<h:commandLink action="#{partitaController.generaPartite(squadraController.getAllSquadre())}"
+								value="Genera Calendario\" />
 						</h:form></li>
 				</c:otherwise>
 			</c:choose>

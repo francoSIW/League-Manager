@@ -9,6 +9,7 @@
 </head>
 <body style="background-color:#a8f7ff;">
 <f:view>
+<h:form>
 <h1><font style="text-transform: uppercase;">${squadraController.squadra.nome}</font></h1>
 <h3>DETTAGLI SQUADRA</h3>
 <div>Colori: ${squadraController.squadra.coloriSociali}</div>
@@ -23,11 +24,13 @@
 	<h3>ELENCO GIOCATORI</h3>
 	<table>
 	<tr>
-		<th>Nome</th><th>Cognome</th><th>No. maglia</th>
+		<th>Giocatore</th><th>No. maglia</th>
 	</tr>
 	<c:forEach var="giocatore" items="#{squadraController.giocatori}">
-		<tr><td>${giocatore.nome}
-		</td><td>${giocatore.cognome}</td><td>${giocatore.numeroMaglia}</td></tr>
+		<tr><td>
+		<h:commandLink action="#{giocatoreController.findGiocatore(giocatore.id)}" value="#{giocatore.nome} #{giocatore.cognome }">
+		</h:commandLink>
+		</td><td align = right>${giocatore.numeroMaglia}</td></tr>
 	</c:forEach>
 </table>
 
@@ -39,14 +42,13 @@
          </ul>
         </c:when>
        <c:otherwise>
-       </br>
-       		<a href='<c:url value="/faces/index.jsp" />'>Torna all' indice</a>
+			</br> <a href='<c:url value="/faces/index.jsp" />'>Torna all' indice</a>
        
        </c:otherwise>
 	</c:choose>
 		
 
-
+</h:form>
 </f:view>
 </body>
 </html>

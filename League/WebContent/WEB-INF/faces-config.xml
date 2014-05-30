@@ -33,8 +33,8 @@
   <navigation-rule>
    <from-view-id>/index.jsp</from-view-id>
    <navigation-case>
-      <from-outcome>partite</from-outcome>
-      <to-view-id>/calendario.jsp</to-view-id>
+      <from-outcome>confermaCalendario</from-outcome>
+      <to-view-id>/confermaCalendario.jsp</to-view-id>
    </navigation-case>
    <navigation-case>
       <from-outcome>errore</from-outcome>
@@ -56,13 +56,41 @@
       <from-outcome>logout</from-outcome>
       <to-view-id>/index.jsp</to-view-id>
    </navigation-case>
+    <navigation-case>
+      <from-outcome>erroreMaglia</from-outcome>
+      <to-view-id>/erroreMaglia.jsp</to-view-id>
+   </navigation-case>
 </navigation-rule>
    
      <navigation-rule>
-   <from-view-id>/calendario.jsp</from-view-id>
+   <from-view-id>/confermaCalendario.jsp</from-view-id>
    <navigation-case>
       <from-outcome>partite</from-outcome>
       <to-view-id>/partite.jsp</to-view-id>
+   </navigation-case>
+   </navigation-rule>
+   
+        <navigation-rule>
+   <from-view-id>/squadra.jsp</from-view-id>
+   <navigation-case>
+      <from-outcome>giocatore</from-outcome>
+      <to-view-id>/giocatore.jsp</to-view-id>
+   </navigation-case>
+      <navigation-case>
+      <from-outcome>erroreMaglia</from-outcome>
+      <to-view-id>/erroreMaglia.jsp</to-view-id>
+   </navigation-case>
+   </navigation-rule>
+   
+           <navigation-rule>
+   <from-view-id>/partite.jsp</from-view-id>
+   <navigation-case>
+      <from-outcome>partita</from-outcome>
+      <to-view-id>/partita.jsp</to-view-id>
+   </navigation-case>
+      <navigation-case>
+      <from-outcome>squadra</from-outcome>
+      <to-view-id>/squadra.jsp</to-view-id>
    </navigation-case>
    </navigation-rule>
 
