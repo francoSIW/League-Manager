@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,10 +11,16 @@
 </head>
 <body style="background-color:#a8f7ff;">
 <f:view>
+<h:form>
+<c:choose>
+<c:when test="${responsabileController.responsabile == null or responsabileController.responsabile.squadra == null }">
+<h2>Non hai le credenziali per visualizzare questa pagina!</h2>
+</c:when>
+<c:otherwise>
 <h2>Giocatori:</h2>
 
 
-<h:form>
+
     <div>Nome: <h:inputText value="#{giocatoreController.nome}" 
                      required="true"
                      requiredMessage="Name is mandatory"
@@ -43,6 +50,8 @@
 	</div>
 	<h:commandLink action="#{productController.listProducts}"
 						value="List all Products" />
+						</c:otherwise>
+</c:choose>
 </h:form>
 </f:view>
 </body>

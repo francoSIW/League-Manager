@@ -23,25 +23,23 @@
 					<h2>Cosa vuoi fare?</h2>
 					<ul>
 						<h:form>
-				<c:choose>
-				<c:when test="${responsabileController.responsabile.squadra != null}">
-					<f:param name="id"
-									value="#{squadraController.squadra.id}" />
-							<h:commandLink action="#{squadraController.findSquadra}"
-								value="Vai alla tua squadra">
-							</h:commandLink>
-							</c:when>
-											<c:otherwise>
-											<li><a
-										href='<c:url value="/faces/newSquadra.jsp" />'>Crea una squadra!</a></li>
-										</c:otherwise>
-											
-										</c:choose>										
+							<c:choose>
+								<c:when
+									test="${responsabileController.responsabile.squadra != null}">
+									<h:commandLink action="#{squadraController.findSquadra(responsabileController.responsabile.squadra.id)}"
+										value="Vai alla tua squadra">
+									</h:commandLink>
+								</c:when>
+								<c:otherwise>
+									<li><a href='<c:url value="/faces/newSquadra.jsp" />'>Crea
+											una squadra!</a></li>
+								</c:otherwise>
+
+							</c:choose>
 							<li><h:commandLink
 									action="#{squadraController.listaSquadre}"
 									value="Visualizza Classifica" /></li>
-																<li><h:commandLink
-									action="#{responsabileController.logout}"
+							<li><h:commandLink action="#{responsabileController.logout}"
 									value="Logout" /></li>
 						</h:form>
 					</ul>
@@ -93,9 +91,10 @@
 							<h:commandLink action="#{squadraController.listaSquadre}"
 								value="Visualizza la classifica" />
 						</h:form></li>
-											<li><h:form>
-							<h:commandLink action="#{partitaController.generaPartite(squadraController.getAllSquadre())}"
-								value="Genera Calendario\" />
+					<li><h:form>
+							<h:commandLink
+								action="#{partitaController.generaPartite(squadraController.getAllSquadre())}"
+								value="Genera Calendario" />
 						</h:form></li>
 				</c:otherwise>
 			</c:choose>

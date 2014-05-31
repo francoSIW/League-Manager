@@ -42,7 +42,8 @@
          </ul>
         </c:when>
        <c:otherwise>
-			</br> <a href='<c:url value="/faces/index.jsp" />'>Torna all' indice</a>
+			</br> 
+			<a href='<c:url value="/faces/index.jsp" />'>Torna all' indice</a>
        
        </c:otherwise>
 	</c:choose>
