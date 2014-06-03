@@ -50,6 +50,15 @@ import javax.persistence.criteria.Root;
 			partita.setPuntiCasa(puntiCasa);
 			partita.setPuntiOspiti(puntiOspiti);
 			partita.setDisputata(true);
+			if(puntiCasa > puntiOspiti)
+				partita.getSquadraCasa().setPunti(partita.getSquadraCasa().getPunti() + 3);
+			else if (puntiCasa < puntiOspiti)
+				partita.getSquadraOspiti().setPunti(partita.getSquadraOspiti().getPunti() + 3);
+			else {
+				partita.getSquadraCasa().setPunti(partita.getSquadraCasa().getPunti() + 1);
+				partita.getSquadraOspiti().setPunti(partita.getSquadraOspiti().getPunti() + 1);
+			}
+				
 			em.merge(partita);
 			return partita;
 		}

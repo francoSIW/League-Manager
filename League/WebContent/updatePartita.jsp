@@ -12,12 +12,12 @@
 <body>
 <f:view>
 <h:form>
-    <div>${partitaController.partita.squadraA.nome}: <h:inputText value="#{partitaController.puntiCasa}" 
+    <div>${partitaController.partita.squadraCasa.nome}: <h:inputText value="#{partitaController.puntiCasa}" 
                      required="true"
                      requiredMessage="Name is mandatory"
                      id="puntiCasa"/> <h:message for="puntiCasa" />
 	</div>
-     <div>${partitaController.partita.squadraB.nome}: <h:inputText value="#{partitaController.puntiOspiti}" 
+     <div>${partitaController.partita.squadraOspiti.nome}: <h:inputText value="#{partitaController.puntiOspiti}" 
                      required="true"
                      requiredMessage="Name is mandatory"
                      id="puntiOspiti"/> <h:message for="puntiOspiti" />

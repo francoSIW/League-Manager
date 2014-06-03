@@ -35,10 +35,10 @@ public class Squadra {
 	private ResponsabileSquadra responsabile;
 
 	
-	@OneToMany(mappedBy="squadraA", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(mappedBy="squadraCasa", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Partita> partiteInCasa;
 
-	@OneToMany(mappedBy="squadraB", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToMany(mappedBy="squadraOspiti", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Partita> partiteFuori;
 
 	public Squadra() {}

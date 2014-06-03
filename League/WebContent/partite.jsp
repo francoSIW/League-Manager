@@ -25,16 +25,16 @@
 				<c:forEach var="partitaDisputata" items="#{partitaController.partiteDisputate}">
 					<tr>
 						<td><h:commandLink
-								action="#{squadraController.findSquadra(partitaDisputata.squadraA.id)}"
-								value="#{partitaDisputata.squadraA.nome}">
+								action="#{squadraController.findSquadra(partitaDisputata.squadraCasa.id)}"
+								value="#{partitaDisputata.squadraCasa.nome}">
 							</h:commandLink></td>
 						<td><h:commandLink
 							action="#{partitaController.findPartita(partitaDisputata.id)}"
 							value="#{partitaDisputata.puntiCasa} - #{partitaDisputata.puntiOspiti}">
 						</h:commandLink></td>
 						<td><h:commandLink
-							action="#{squadraController.findSquadra(partitaDisputata.squadraB.id)}"
-							value="#{partitaDisputata.squadraB.nome}">
+							action="#{squadraController.findSquadra(partitaDisputata.squadraOspiti.id)}"
+							value="#{partitaDisputata.squadraOspiti.nome}">
 						</h:commandLink>
 					</td>
 					</tr>
@@ -51,16 +51,16 @@
 				<c:forEach var="partita" items="#{partitaController.partiteDaDisputare}">
 					<tr>
 						<td><h:commandLink
-								action="#{squadraController.findSquadra(partita.squadraA.id)}"
-								value="#{partita.squadraA.nome}">
+								action="#{squadraController.findSquadra(partita.squadraCasa.id)}"
+								value="#{partita.squadraCasa.nome}">
 							</h:commandLink></td>
 						<td><h:commandLink
 							action="#{partitaController.findPartita(partita.id)}"
 							value="#{partita.puntiCasa} - #{partita.puntiOspiti}">
 						</h:commandLink></td>
 						<td><h:commandLink
-							action="#{squadraController.findSquadra(partita.squadraB.id)}"
-							value="#{partita.squadraB.nome}">
+							action="#{squadraController.findSquadra(partita.squadraOspiti.id)}"
+							value="#{partita.squadraOspiti.nome}">
 						</h:commandLink>
 					</td>
 					</tr>

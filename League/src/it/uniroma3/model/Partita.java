@@ -42,19 +42,19 @@ public class Partita {
 	@Column
 	private Boolean disputata;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private Squadra squadraA;
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	private Squadra squadraCasa;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	private Squadra squadraB;
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	private Squadra squadraOspiti;
 
 	public Partita(){}
 
 	public Partita(String luogo, Squadra s1, Squadra s2, Calendar data) {
 		this.luogo = luogo;
 		this.disputata = false;
-		this.squadraA = s1;
-		this.squadraB = s2;
+		this.squadraCasa = s1;
+		this.squadraOspiti = s2;
 		this.data = data;
 		this.puntiCasa = 0;
 		this.puntiOspiti = 0;
@@ -109,20 +109,20 @@ public class Partita {
 		this.puntiOspiti = puntiOspiti;
 	}
 
-	public Squadra getSquadraA() {
-		return squadraA;
+	public Squadra getSquadraCasa() {
+		return squadraCasa;
 	}
 
-	public void setSquadraA(Squadra squadraA) {
-		this.squadraA = squadraA;
+	public void setSquadraCasa(Squadra squadraCasa) {
+		this.squadraCasa = squadraCasa;
 	}
 
-	public Squadra getSquadraB() {
-		return squadraB;
+	public Squadra getSquadraOspiti() {
+		return squadraOspiti;
 	}
 
-	public void setSquadraB(Squadra squadraB) {
-		this.squadraB = squadraB;
+	public void setSquadraOspiti(Squadra squadraOspiti) {
+		this.squadraOspiti = squadraOspiti;
 	}
 
 

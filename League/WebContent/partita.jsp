@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${partitaController.partita.squadraA.nome} ${partitaController.partita.puntiCasa} - ${partitaController.partita.puntiOspiti} ${partitaController.partita.squadraB.nome}</h1>
+<h1>${partitaController.partita.squadraCasa.nome} ${partitaController.partita.puntiCasa} - ${partitaController.partita.puntiOspiti} ${partitaController.partita.squadraOspiti.nome}</h1>
 		<a href='<c:url value="/faces/updatePartita.jsp" />'>Aggiorna risultato</a>
 </body>
 </html>
