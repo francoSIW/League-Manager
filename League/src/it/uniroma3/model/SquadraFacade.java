@@ -23,9 +23,8 @@ public class SquadraFacade {
 	   public Squadra createSquadra(String nome, String colori, String via, ResponsabileSquadra responsabile) {
 		Squadra squadra = new Squadra(nome, colori, via, responsabile);
 		responsabile.setSquadra(squadra);
+		//chiedere al professore
 		em.merge(responsabile);
-		//em.persist(squadra);
-
 		return squadra;
 	   }
 

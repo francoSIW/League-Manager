@@ -22,16 +22,20 @@ public class GiocatoreFacade {
     @PersistenceContext(unitName = "league-unit")
     private EntityManager em;
     
-	   public Giocatore createGiocatore(String nome, String cognome, Integer eta, Integer numeroMaglia, Squadra squadra) throws Exception {
+	   public Giocatore createGiocatore(String nome, String cognome, Integer eta, Integer numeroMaglia, Squadra squadra) {
+		   
 		Giocatore giocatore = new Giocatore(nome, cognome, eta, numeroMaglia, squadra);
-
-		      em.persist(giocatore);
-
+		em.persist(giocatore);
 		return giocatore;
 	   }
 		   
 	   
-	   
+	   public void deleteGiocatore(Long id){
+		   Giocatore giocatore = em.find(Giocatore.class, id);
+		   em.remove(giocatore);
+	   }
+	  
+	   //ritorna una istanza detached, no operazioni sul db!!
 	   public Giocatore getGiocatore(Long id) {
 	          Giocatore giocatore = em.find(Giocatore.class, id);
 	          return giocatore;

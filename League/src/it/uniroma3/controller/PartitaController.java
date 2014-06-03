@@ -28,22 +28,45 @@ public class PartitaController {
 	private String luogo;
 	private String arbitro;
 	private Partita partita ;
-	private int puntiCasa;
-	private int puntiOspiti;
+	private Integer puntiCasa;
+	private Integer puntiOspiti;
 	private Squadra squadraA;
 	private Squadra squadraB;
 
-	private List<Partita>partite ;
+	private List<Partita>partiteDisputate;
+	private List<Partita>partiteDaDisputare;
 	
 	@EJB(beanName="pFacade")
 	private PartitaFacade partitaFacade;
 	
 
+	
 	public String listaPartite(){
-		this.partite = partitaFacade.getAllPartite();
+		this.partiteDaDisputare = partitaFacade.getAllPartiteDaDisputare();
+		this.partiteDisputate = partitaFacade.getAllPartiteDisputate();
 		return "partite";
 	}
-	
+
+	public String updatePartita() {
+		this.partita = partitaFacade.updatePartita(this.partita, this.puntiCasa, this.puntiOspiti);
+		return "partita";
+	}
+	public List<Partita> getPartiteDisputate() {
+		return partiteDisputate;
+	}
+
+	public void setPartiteDisputate(List<Partita> partiteDisputate) {
+		this.partiteDisputate = partiteDisputate;
+	}
+
+	public List<Partita> getPartiteDaDisputare() {
+		return partiteDaDisputare;
+	}
+
+	public void setPartiteDaDisputare(List<Partita> partiteDaDisputare) {
+		this.partiteDaDisputare = partiteDaDisputare;
+	}
+
 	public String generaPartite(List<Squadra> squadre) {
 		partitaFacade.generaPartite(squadre);
 		return "confermaCalendario";
@@ -78,16 +101,18 @@ public class PartitaController {
 	public void setArbitro(String arbitro) {
 		this.arbitro = arbitro;
 	}
-	public int getPuntiCasa() {
+	
+	public Integer getPuntiCasa() {
 		return puntiCasa;
 	}
-	public void setPuntiCasa(int puntiCasa) {
+	
+	public void setPuntiCasa(Integer puntiCasa) {
 		this.puntiCasa = puntiCasa;
 	}
-	public int getPuntiOspiti() {
+	public Integer getPuntiOspiti() {
 		return puntiOspiti;
 	}
-	public void setPuntiOspiti(int puntiOspiti) {
+	public void setPuntiOspiti(Integer puntiOspiti) {
 		this.puntiOspiti = puntiOspiti;
 	}
 	public Squadra getSquadraA() {
@@ -102,12 +127,8 @@ public class PartitaController {
 	public void setSquadraB(Squadra squadraB) {
 		this.squadraB = squadraB;
 	}
-	public List<Partita> getPartite() {
-		return partite;
-	}
-	public void setPartite(List<Partita> partite) {
-		this.partite = partite;
-	}
+
+
 	public Partita getPartita() {
 		return partita;
 	}

@@ -11,6 +11,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 
+import it.uniroma3.*;
 @ManagedBean
 @SessionScoped
 public class GiocatoreController {
@@ -25,6 +26,7 @@ public class GiocatoreController {
 	private Giocatore giocatore;
 	private Squadra squadra;
 	private String test;
+
 	
 	
 
@@ -47,33 +49,38 @@ public class GiocatoreController {
 
 	
 	public String createGiocatore(Squadra squadra) { 
-		try{
+		if(squadra.getId() == null)
+			return "magliaInUso";
+		else {
 		this.giocatore = giocatoreFacade.createGiocatore(this.nome, this.cognome, this.eta, this.numeroMaglia, squadra);
 		squadra.getGiocatori().add(this.giocatore);
 		return "giocatore"; 
-		}
-		catch(Exception e){
+		}//}
+		/*catch(Exception e){
 			return "magliaInUso";
-		}
+		}*/
 		}
 	
+	public String deleteGiocatore(Long id, Squadra squadra){
+		this.giocatore = giocatoreFacade.getGiocatore(id);
+		giocatoreFacade.deleteGiocatore(id);
+		this.squadra.getGiocatori().remove(this.giocatore);
+		this.giocatori = this.squadra.getGiocatori();
+		return "rimosso";
+	}
+	
+	public String findGiocatoriSquadraResponsabile(ResponsabileSquadra responsabile) {
+		this.squadra =  responsabile.getSquadra();
+		this.giocatori = squadra.getGiocatori();	
+		return "gestioneSquadra";
+		}
+	
+	
 	public String findGiocatore(Long id) {
-		//FacesContext fc = FacesContext.getCurrentInstance();
-		//if(getIdParam(fc) == null) 
-			//return "erroreMaglia";
-		//this.id = Long.valueOf(getIdParam(fc)).longValue();
 		this.giocatore = giocatoreFacade.getGiocatore(id);
 		return "giocatore";
 		
 	}
-	
-	//get value from "f:param"
-	/*	public String getIdParam(FacesContext fc){
-	 
-			Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
-			return params.get("id");
-		}
-		*/
 		
 	public Squadra getSquadra() {
 		return squadra;

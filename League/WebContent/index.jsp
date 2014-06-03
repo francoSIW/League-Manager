@@ -13,42 +13,8 @@
 <body style="background-color: #a8f7ff;">
 	<f:view>
 		<h1>----LEAGUE MANAGER-----</h1>
-
-		<!-- Se l'utente e' loggato come responsabile di una squadra mostra questo... -->
-
 		<div>
-			<c:choose>
-				<c:when test="${responsabileController.responsabile != null}">
-					<h1>Ciao ${responsabileController.responsabile.nome}!</h1>
-					<h2>Cosa vuoi fare?</h2>
-					<ul>
-						<h:form>
-							<c:choose>
-								<c:when
-									test="${responsabileController.responsabile.squadra != null}">
-									<h:commandLink action="#{squadraController.findSquadra(responsabileController.responsabile.squadra.id)}"
-										value="Vai alla tua squadra">
-									</h:commandLink>
-								</c:when>
-								<c:otherwise>
-									<li><a href='<c:url value="/faces/newSquadra.jsp" />'>Crea
-											una squadra!</a></li>
-								</c:otherwise>
-
-							</c:choose>
-							<li><h:commandLink
-									action="#{squadraController.listaSquadre}"
-									value="Visualizza Classifica" /></li>
-							<li><h:commandLink action="#{responsabileController.logout}"
-									value="Logout" /></li>
-						</h:form>
-					</ul>
-				</c:when>
-
-
-				<c:otherwise>
-					<!-- altrimenti mostra questo (utente non registrato) -->
-
+			
 
 					<h3>Benvenuto! Accedi alla tua area personale:</h3>
 
@@ -86,7 +52,7 @@
 							</h:form></li>
 					</ul>
 
-
+				<ul>
 					<li><h:form>
 							<h:commandLink action="#{squadraController.listaSquadre}"
 								value="Visualizza la classifica" />
@@ -96,8 +62,12 @@
 								action="#{partitaController.generaPartite(squadraController.getAllSquadre())}"
 								value="Genera Calendario" />
 						</h:form></li>
-				</c:otherwise>
-			</c:choose>
+					
+			<li><h:form>
+					<h:commandLink action="#{partitaController.listaPartite}"
+						value="Visualizza Partite" />
+				</h:form></li>
+			</ul>
 		</div>
 
 	</f:view>

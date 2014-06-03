@@ -30,24 +30,12 @@
 		<tr><td>
 		<h:commandLink action="#{giocatoreController.findGiocatore(giocatore.id)}" value="#{giocatore.nome} #{giocatore.cognome }">
 		</h:commandLink>
-		</td><td align = right>${giocatore.numeroMaglia}</td></tr>
+		</td><td align = right>${giocatore.numeroMaglia}</td>
+		</tr>
 	</c:forEach>
-</table>
-
-		<c:choose>
-		<c:when test="${responsabileController.responsabile != null}">  
-				<ul>
-         <li> <a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Aggiungi giocatori</a></li>
-          <li><a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a></li>
-         </ul>
-        </c:when>
-       <c:otherwise>
+</table>     
 			</br> 
-			<a href='<c:url value="/faces/index.jsp" />'>Torna all' indice</a>
-       
-       </c:otherwise>
-	</c:choose>
-		
+			<a href='<c:url value="/faces/squadre.jsp" />'>Torna alla classifica</a>
 
 </h:form>
 </f:view>

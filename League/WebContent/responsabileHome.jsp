@@ -11,18 +11,35 @@
 </head>
 <body>
 	<f:view>
-		<h1>ciao ${responsabileController.responsabile.nome}!</h1>
-			<ul>
-			<li><a href='<c:url value="/faces/newSquadra.jsp" />'>Iscrivi una squadra!</a></li>
-			<li><h:form>
-					<h:commandLink action="#{squadraController.listaSquadre}"
-						value="Elenco squadre" />
-				</h:form></li>
-							<li><h:form>
-					<h:commandLink action="#{partitaController.generaPartite}"
-						value="Genera Calendario" />
-				</h:form>
-				</li>
-				</ul>
+		<c:choose>
+				<c:when test="${responsabileController.responsabile != null}">
+					<h1>Ciao ${responsabileController.responsabile.nome}!</h1>
+					<h2>Cosa vuoi fare?</h2>
+					<ul>
+						<h:form>
+							<c:choose>
+								<c:when
+									test="${responsabileController.responsabile.squadra != null}">
+									<h:commandLink action="#{giocatoreController.findGiocatoriSquadraResponsabile(responsabileController.responsabile)}"
+										value="Gestisci la tua squadra">
+									</h:commandLink>
+								</c:when>
+								<c:otherwise>
+									<li><a href='<c:url value="/faces/newSquadra.jsp" />'>Crea
+											una squadra!</a></li>
+								</c:otherwise>
+							</c:choose>
+							<li><h:commandLink
+									action="#{squadraController.listaSquadre}"
+									value="Visualizza Classifica" /></li>
+							<li><h:commandLink action="#{responsabileController.logout}"
+									value="Logout" /></li>
+						</h:form>
+					</ul>
+				</c:when>
+				<c:otherwise>
+				<h2>Non hai le credenziali per accedere alla pagina!</h2>
+				</c:otherwise>
+				</c:choose>
 				</f:view>
 </html>

@@ -15,7 +15,7 @@
 	<a href='<c:url value="/faces/aggiungiGiocatore.jsp" />'>Aggiungi un altro giocatore:</a>
 </div>
 		<div>
-					<a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a>
+					<a href='<c:url value="/faces/responsabileHome.jsp" />'>Torna alla Home</a>
 	</div>
 </h:form>
 </f:view>

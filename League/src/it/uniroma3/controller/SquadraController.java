@@ -97,6 +97,8 @@ public class SquadraController {
 		return "squadra";
 		}
 	
+	
+	
 	public Long getId() {
 		return id;
 	}

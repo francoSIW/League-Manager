@@ -45,7 +45,7 @@
 									action="#{squadraController.createSquadra(responsabileController.responsabile)}" />
 
 							</div>
-							<li><a href='index.html'>Torna alla Home</a></li>
+							<li><a href='/responsabileHome.jsp'>Torna alla Home</a></li>
 						</c:when>
 						<c:when
 							test="${responsabileController.responsabile.squadra != null}">
