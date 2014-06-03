@@ -46,15 +46,17 @@ public class GiocatoreController {
 
 
 	
-	public String createGiocatore(Squadra squadra) { 
-		try{
-		this.giocatore = giocatoreFacade.createGiocatore(this.nome, this.cognome, this.eta, this.numeroMaglia, squadra);
-		squadra.getGiocatori().add(this.giocatore);
+	public String createGiocatore(Long id) { 
+		//try{
+		if (squadra == null)
+			return "maglia in uso";
+		this.giocatore = giocatoreFacade.createGiocatore(this.nome, this.cognome, this.eta, this.numeroMaglia, id);
+		//squadra.getGiocatori().add(this.giocatore);
 		return "giocatore"; 
-		}
-		catch(Exception e){
+		//}
+		/*catch(Exception e){
 			return "magliaInUso";
-		}
+		}*/
 		}
 	
 	public String findGiocatore(Long id) {

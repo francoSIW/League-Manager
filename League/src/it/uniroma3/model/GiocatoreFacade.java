@@ -22,8 +22,11 @@ public class GiocatoreFacade {
     @PersistenceContext(unitName = "league-unit")
     private EntityManager em;
     
-	   public Giocatore createGiocatore(String nome, String cognome, Integer eta, Integer numeroMaglia, Squadra squadra) throws Exception {
-		Giocatore giocatore = new Giocatore(nome, cognome, eta, numeroMaglia, squadra);
+	   public Giocatore createGiocatore(String nome, String cognome, Integer eta, Integer numeroMaglia, Long id) {
+		   
+		   Squadra squadra = this.getSquadra(id);
+		   
+		   Giocatore giocatore = new Giocatore(nome, cognome, eta, numeroMaglia, squadra);
 
 		      em.persist(giocatore);
 

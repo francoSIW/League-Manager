@@ -19,7 +19,7 @@ public class Giocatore {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO) 
     @Column(name="giocatore_id")
     private Long id;
 

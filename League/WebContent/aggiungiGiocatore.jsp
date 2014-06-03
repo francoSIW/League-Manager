@@ -46,7 +46,7 @@
 
 	<div>
 	
-		<h:commandButton value="Submit"  action="#{giocatoreController.createGiocatore(squadraController.squadra)}"/>
+		<h:commandButton value="Submit"  action="#{giocatoreController.createGiocatore(squadraController.squadra.id)}"/>
 	</div>
 	<h:commandLink action="#{productController.listProducts}"
 						value="List all Products" />

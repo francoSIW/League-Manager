@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Squadraii</title>
+<title>LEAGUE MANAGER- SQUADRA ISCRITTA!</title>
 </head>
 <body style="background-color:#a8f7ff;">
 <f:view>

@@ -24,7 +24,6 @@ public class SquadraFacade {
 		Squadra squadra = new Squadra(nome, colori, via, responsabile);
 		responsabile.setSquadra(squadra);
 		em.merge(responsabile);
-		//em.persist(squadra);
 
 		return squadra;
 	   }
