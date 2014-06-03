@@ -66,6 +66,8 @@
 					</tr>
 				</c:forEach>
 			</table>
+				</br>
+					<a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a>
 		</h:form>
 
 	</f:view>

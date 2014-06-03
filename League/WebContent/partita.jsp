@@ -12,5 +12,6 @@
 <body>
 <h1>${partitaController.partita.squadraCasa.nome} ${partitaController.partita.puntiCasa} - ${partitaController.partita.puntiOspiti} ${partitaController.partita.squadraOspiti.nome}</h1>
 		<a href='<c:url value="/faces/updatePartita.jsp" />'>Aggiorna risultato</a>
+				<a href='<c:url value="/faces/partite.jsp" />'>Torna all'elenco delle partite</a>
 </body>
 </html>

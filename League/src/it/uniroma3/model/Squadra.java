@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.persistence.*;
 
 @Entity
-@NamedQuery(name = "trovaSquadre", query = "SELECT s FROM Squadra s")
+@NamedQuery(name = "trovaSquadre", query = "SELECT s FROM Squadra s ORDER BY s.punti DESC")
 @Table(name="squadre")
 public class Squadra {
 
