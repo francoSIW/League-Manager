@@ -1,5 +1,7 @@
 package it.uniroma3.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +21,7 @@ public class Giocatore {
 
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO) 
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="giocatore_id")
     private Long id;
 
@@ -41,7 +43,7 @@ public class Giocatore {
 	@Column(name = "numeroMaglia", nullable=false)
 	private Integer numeroMaglia;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="squadra_id")
 	private Squadra squadra;
 
@@ -56,7 +58,6 @@ public class Giocatore {
 		this.mediaVoto = (float)0;
 		this.punti = 0;
 		this.squadra = squadra;
-
 	}
 
 	public Long getId() {
@@ -79,7 +80,7 @@ public class Giocatore {
 		return cognome;
 	}
 
-	
+
 	public Squadra getSquadra() {
 		return squadra;
 	}
@@ -88,7 +89,7 @@ public class Giocatore {
 		this.squadra = squadra;
 	}
 
-	
+
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}

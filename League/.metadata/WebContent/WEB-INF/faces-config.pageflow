@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14013843825300" configfile="/League/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index" x="338" y="946" id="pf14013844502521" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" outlinks="pf14013844502523 pf140138446149025 pf140138446149026 pf140138446149027 pf140138447115628 pf14015501692980 pf14015501692981" inlinks="pf14013844502525 pf140138446149026 pf140138446149027" path="/index.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="calendario" x="122" y="178" id="pf14013844502536" referenceLink="//@navigationRule.1/@fromViewId|" path="/calendario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="riprovaLogin" x="122" y="946" id="pf14013844502538" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf14013844502525" inlinks="pf14013844502523" path="/riprovaLogin.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="squadre" x="554" y="722" id="pf14013844502539" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf140138445025310 pf140138445025311" inlinks="pf140138446149025" path="/squadre.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="partite" x="770" y="1169" id="pf140138445025312" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14015501692992 pf14015501692993" inlinks="pf14015501692994" path="/partite.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="newSquadra" x="554" y="338" id="pf140138445025313" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf140138445025314 pf14015501692995" path="/newSquadra.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="squadraIscritta" x="770" y="530" id="pf140138445025315" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" inlinks="pf140138445025314 pf140138445025311" path="/squadraIscritta.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="aggiungiGiocatore" x="986" y="722" id="pf140138445025316" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf140138445025317 pf140138445025318" path="/aggiungiGiocatore.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="aggiuntoGiocatore" x="1202" y="540" id="pf140138445025319" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf140138445025317" path="/aggiuntoGiocatore.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="erroreMaglia" x="1202" y="924" id="pf140138445025320" referenceLink="//@navigationRule.5/@navigationCase.1/@toViewId|" inlinks="pf140138445025318 pf14015501692981 pf14015501692996" path="/erroreMaglia.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="registrazione" x="122" y="562" id="pf140138445025321" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf140138445025322" path="/registrazione.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="registratoConSuccesso" x="338" y="562" id="pf140138445025323" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf140138445025322" path="/registratoConSuccesso.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="squadra" x="986" y="1127" id="pf140138445025324" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" outlinks="pf14015501692997 pf14015501692996" inlinks="pf140138445025310 pf140138447115628 pf14015501692993 pf14015501692995" path="/squadra.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="confermaCalendario" x="554" y="1169" id="pf14015501692998" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14015501692994" inlinks="pf14015501692980" path="/confermaCalendario.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="giocatore" x="1202" y="1308" id="pf14015501693009" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14015501692997" path="/giocatore.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="partita" x="986" y="1511" id="pf140155016930010" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14015501692992" path="/partita.jsp"/>
+  <links id="pf14013844502523" target="pf14013844502538" source="pf14013844502521" outcome="errore"/>
+  <links id="pf140138445025314" target="pf140138445025315" source="pf140138445025313" outcome="squadraIscritta"/>
+  <links id="pf140138445025317" target="pf140138445025319" source="pf140138445025316" outcome="giocatore"/>
+  <links id="pf140138445025318" target="pf140138445025320" source="pf140138445025316" outcome="magliaInUso"/>
+  <links id="pf140138445025322" target="pf140138445025323" source="pf140138445025321" outcome="registrato"/>
+  <links id="pf140138445025310" target="pf140138445025324" source="pf14013844502539" outcome="squadra"/>
+  <links id="pf140138445025311" target="pf140138445025315" source="pf14013844502539" outcome="squadraIscritta"/>
+  <links id="pf14013844502525" target="pf14013844502521" source="pf14013844502538" outcome="logged"/>
+  <links id="pf140138446149025" target="pf14013844502539" source="pf14013844502521" outcome="squadre"/>
+  <links id="pf140138447115628" target="pf140138445025324" source="pf14013844502521" outcome="squadra"/>
+  <links id="pf14015501692980" target="pf14015501692998" source="pf14013844502521" outcome="confermaCalendario"/>
+  <links id="pf14015501692981" target="pf140138445025320" source="pf14013844502521" outcome="erroreMaglia"/>
+  <links id="pf14015501692994" target="pf140138445025312" source="pf14015501692998" outcome="partite"/>
+  <links id="pf14015501692997" target="pf14015501693009" source="pf140138445025324" outcome="giocatore"/>
+  <links id="pf14015501692996" target="pf140138445025320" source="pf140138445025324" outcome="erroreMaglia"/>
+  <links id="pf14015501692992" target="pf140155016930010" source="pf140138445025312" outcome="partita"/>
+  <links id="pf14015501692993" target="pf140138445025324" source="pf140138445025312" outcome="squadra"/>
+  <links id="pf140138446149026" target="pf14013844502521" source="pf14013844502521" outcome="logged">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf140138446149027" target="pf14013844502521" source="pf14013844502521" outcome="logout">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+  <links id="pf14015501692995" target="pf140138445025324" source="pf140138445025313" outcome="squadra"/>
+</pageflow:Pageflow>

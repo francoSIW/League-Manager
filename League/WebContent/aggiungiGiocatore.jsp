@@ -37,20 +37,15 @@
                      requiredMessage="Age is mandatory"
                      id="eta"/> <h:message for="eta" />
 	</div>
-
     <div>Numero Maglia: <h:inputText value="#{giocatoreController.numeroMaglia}" 
                      required="true"
                      requiredMessage="Number is mandatory"
                      id="numero"/> <h:message for="numero" />
 	</div>
-
 	<div>
-	
-		<h:commandButton value="Submit"  action="#{giocatoreController.createGiocatore(squadraController.squadra.id)}"/>
-	</div>
-	<h:commandLink action="#{productController.listProducts}"
-						value="List all Products" />
-						</c:otherwise>
+		<h:commandButton value="Submit"  action="#{giocatoreController.createGiocatore(giocatoreController.squadra)}"/>
+	</div>	
+</c:otherwise>
 </c:choose>
 </h:form>
 </f:view>

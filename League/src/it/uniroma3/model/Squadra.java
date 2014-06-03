@@ -28,10 +28,10 @@ public class Squadra {
 	@Column
 	private Integer punti;
 
-	@OneToMany(mappedBy="squadra", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="squadra", cascade = {CascadeType.REMOVE}, fetch=FetchType.EAGER)
 	private List<Giocatore> giocatori;
 	
-	@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}, fetch=FetchType.EAGER)
+	@OneToOne(cascade ={CascadeType.REMOVE, CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private ResponsabileSquadra responsabile;
 
 	

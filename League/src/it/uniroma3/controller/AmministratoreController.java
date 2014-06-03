@@ -32,17 +32,17 @@ public class AmministratoreController implements Serializable {
 
 	private Amministratore admin ;
 	private List<Amministratore>admins ;
-	
+
 	private AmministratoreFacade adminFacade;
 	private boolean loggedIn;
 
 	@EJB(beanName="aFacade")
-	
+
     private static final Integer predefinitoPin = 123456; //che fantasia
 	private static final String predefinitaPass = "league";
 	private static final Amministratore pre = new Amministratore("nomePredefinito", "cognomepredefinito",predefinitoPin,predefinitaPass);
-	
-	
+
+
 	public String redirectToLogin() {
 		return "/loginAmministratore.jsp?faces-redirect=true";
 	}
@@ -59,8 +59,8 @@ public class AmministratoreController implements Serializable {
 	public String toWelcome() {
 		return "/paginefiltrate/welcome.jsp";
 	}
-	
-	
+
+
     public String Login(Amministratore a) {
 
     	if (predefinitoPin == a.getPin() && (predefinitaPass.equals(a.getPassword()))){
@@ -143,7 +143,7 @@ public class AmministratoreController implements Serializable {
 	}
 
 	public boolean isLoggedIn() {
-		
+
 		return this.loggedIn;
 	}
 	public void setLoggedIn(boolean loggedIn) {
@@ -152,4 +152,3 @@ public class AmministratoreController implements Serializable {
 
 
 }
-
