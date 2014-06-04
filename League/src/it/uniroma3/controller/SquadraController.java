@@ -147,6 +147,16 @@ public class SquadraController {
 	public void setResponsabile(ResponsabileSquadra responsabile) {
 		this.responsabile = responsabile;
 	}
+	
+	public String resetSquadre() {
+		squadraFacade.resetAllSquadre();
+		return "resetSquadre";
+	}
+	
+	public String calcolaDifferenzaReti(Integer fatti, Integer subiti) {
+		Integer differenza = fatti-subiti;
+		return Integer.toString(differenza);
+	}
 
 
 

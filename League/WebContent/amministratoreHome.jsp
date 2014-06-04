@@ -27,6 +27,8 @@
 								action="#{partitaController.svuotaCalendario}"
 								value="svuota Calendario">
 							</h:commandLink></li>
+							<li><h:commandLink action="#{squadraController.resetSquadre}"
+								value="Reset Squadre" /></li>
 						<li><h:commandLink action="#{squadraController.listaSquadre}"
 								value="Visualizza Classifica" /></li>
 						<li><h:commandLink action="#{responsabileController.logout}"

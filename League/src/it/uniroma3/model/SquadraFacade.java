@@ -40,6 +40,19 @@ public class SquadraFacade {
 		return squadre;
 
 	}
+	
+	public void resetAllSquadre() {
+		for(Squadra squadra : this.getAllSquadre()) {
+			squadra.setGiocate(0);
+			squadra.setVinte(0);
+			squadra.setNulle(0);
+			squadra.setPerse(0);
+			squadra.setFatti(0);
+			squadra.setSubiti(0);
+			squadra.setPunti(0);
+			em.merge(squadra);
+		}
+	}
 
 
 

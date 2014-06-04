@@ -52,18 +52,46 @@ public class PartitaFacade {
 	}
 
 	public Partita updatePartita(Partita partita, Integer puntiCasa, Integer puntiOspiti){
+
 		partita.setPuntiCasa(puntiCasa);
 		partita.setPuntiOspiti(puntiOspiti);
 		partita.setDisputata(true);
-		if(puntiCasa > puntiOspiti)
+		partita.getSquadraCasa().setGiocate(partita.getSquadraCasa().getGiocate()+1);
+		partita.getSquadraOspiti().setGiocate(partita.getSquadraOspiti().getGiocate()+1);
+
+		if(puntiCasa > puntiOspiti) {
+			//set punti
 			partita.getSquadraCasa().setPunti(partita.getSquadraCasa().getPunti() + 3);
-		else if (puntiCasa < puntiOspiti)
+			//set partite
+			partita.getSquadraCasa().setVinte(partita.getSquadraCasa().getVinte() + 1);
+			partita.getSquadraOspiti().setPerse(partita.getSquadraOspiti().getPerse() + 1);
+
+		}
+		else if (puntiCasa < puntiOspiti) {
+			//set punti
 			partita.getSquadraOspiti().setPunti(partita.getSquadraOspiti().getPunti() + 3);
+			//set partite
+			partita.getSquadraOspiti().setVinte(partita.getSquadraOspiti().getVinte() + 1);
+			partita.getSquadraCasa().setPerse(partita.getSquadraCasa().getPerse() + 1);
+
+		}
 		else {
+			//set punti
 			partita.getSquadraCasa().setPunti(partita.getSquadraCasa().getPunti() + 1);
 			partita.getSquadraOspiti().setPunti(partita.getSquadraOspiti().getPunti() + 1);
+			//set partite
+			partita.getSquadraCasa().setNulle(partita.getSquadraCasa().getNulle() + 1);
+			partita.getSquadraOspiti().setNulle(partita.getSquadraOspiti().getNulle() + 1);
+
 		}
 
+		//set gol
+		partita.getSquadraCasa().setFatti(partita.getSquadraCasa().getFatti()+partita.getPuntiCasa());
+		partita.getSquadraCasa().setSubiti(partita.getSquadraCasa().getSubiti()+partita.getPuntiOspiti());
+		partita.getSquadraOspiti().setFatti(partita.getSquadraOspiti().getFatti()+partita.getPuntiOspiti());
+		partita.getSquadraOspiti().setSubiti(partita.getSquadraOspiti().getSubiti()+partita.getPuntiCasa());
+		
+		
 		em.merge(partita);
 		return partita;
 	}
@@ -90,12 +118,12 @@ public class PartitaFacade {
 
 		Date date = new Date(114, 06, 02, 21, 00);
 		Date fineCampionato = DateUtils.addDays(date, 7*((squadre.size()-2)));
-		
-		
+
+
 		for(Squadra s1 :  squadre) {
 			boolean inCasa = true;
 			for(Squadra s2 :  squadre.subList(squadre.indexOf(s1), squadre.size())) {
-				
+
 				if(!s1.equals(s2)) {
 
 					while(!date.after(fineCampionato)) {
@@ -133,19 +161,20 @@ public class PartitaFacade {
 			}
 			date = new Date(114, 06, 02, 21, 00);
 		}
-			return getAllPartiteDaDisputare();      
-		}
+		return getAllPartiteDaDisputare();      
+	}
 
 
 	public void svuotaCalendario() {
 		em.createNamedQuery("deleteAllPartite").executeUpdate();
+		
 	}
-	
 
-		public  void createPartita(String luogo, Squadra squadraA,	Squadra squadraB, Date data) {
-			Partita partita = new Partita(luogo, squadraA , squadraB, data);
-			em.persist(partita);
 
-		}
+	public  void createPartita(String luogo, Squadra squadraA,	Squadra squadraB, Date data) {
+		Partita partita = new Partita(luogo, squadraA , squadraB, data);
+		em.persist(partita);
 
 	}
+
+}

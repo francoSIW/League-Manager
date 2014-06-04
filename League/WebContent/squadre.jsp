@@ -14,6 +14,13 @@
 			<table>
 				<tr>
 					<th>Squadra</th>
+					<th>G</th>
+					<th>V</th>
+					<th>N</th>
+					<th>P</th>
+					<th>GF</th>
+					<th>GS</th>
+					<th>DR</th>
 					<th>Punti</th>
 				</tr>
 				<c:forEach var="squadra" items="#{squadraController.squadre}">
@@ -22,7 +29,14 @@
 								action="#{squadraController.findSquadra(squadra.id)}"
 								value="#{squadra.nome}">
 							</h:commandLink></td>
-						<td align=justify>${squadra.punti}</td>
+						<td align=center>${squadra.giocate}</td>
+						<td align=center>${squadra.vinte}</td>
+						<td align=center>${squadra.nulle}</td>
+						<td align=center>${squadra.perse}</td>
+						<td align=center>${squadra.fatti}</td>
+						<td align=center>${squadra.subiti}</td>
+						<td align=center>${squadraController.calcolaDifferenzaReti(squadra.fatti, squadra.subiti)}</td>
+						<td align=center>${squadra.punti}</td>
 					</tr>
 				</c:forEach>
 			</table>

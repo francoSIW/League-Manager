@@ -24,9 +24,28 @@ public class Squadra {
 
 	@Column(nullable=false)
 	private String via;
-
+	
+	@Column
+	private Integer giocate;
+	
+	@Column
+	private Integer vinte;
+	
+	@Column
+	private Integer nulle;
+	
+	@Column
+	private Integer perse;
+	
+	@Column
+	private Integer fatti;
+	
+	@Column
+	private Integer subiti;
+	
 	@Column
 	private Integer punti;
+
 
 	@OneToMany(mappedBy="squadra", cascade = {CascadeType.REMOVE}, fetch=FetchType.EAGER)
 	private List<Giocatore> giocatori;
@@ -48,6 +67,12 @@ public class Squadra {
 		this.coloriSociali = coloriSociali;
 		this.via = via;
 		this.punti = 0;
+		this.giocate = 0;
+		this.vinte = 0;
+		this.nulle = 0;
+		this.perse = 0;
+		this.fatti = 0;
+		this.subiti = 0;
 		this.responsabile = responsabile;
 		this.giocatori = new ArrayList<Giocatore>();
 	}
@@ -144,6 +169,55 @@ public class Squadra {
 	public void setVia(String via) {
 		this.via = via;
 	}
+	
+	public Integer getGiocate() {
+		return giocate;
+	}
+
+	public void setGiocate(Integer giocate) {
+		this.giocate = giocate;
+	}
+
+	public Integer getVinte() {
+		return vinte;
+	}
+
+	public void setVinte(Integer vinte) {
+		this.vinte = vinte;
+	}
+
+	public Integer getNulle() {
+		return nulle;
+	}
+
+	public void setNulle(Integer nulle) {
+		this.nulle = nulle;
+	}
+
+	public Integer getPerse() {
+		return perse;
+	}
+
+	public void setPerse(Integer perse) {
+		this.perse = perse;
+	}
+
+	public Integer getFatti() {
+		return fatti;
+	}
+
+	public void setFatti(Integer fatti) {
+		this.fatti = fatti;
+	}
+
+	public Integer getSubiti() {
+		return subiti;
+	}
+
+	public void setSubiti(Integer subiti) {
+		this.subiti = subiti;
+	}
+
 
 	@Override
 	public boolean equals(Object obj) {

@@ -22,7 +22,8 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @NamedQueries({
 @NamedQuery(name = "trovaSquadraInPartita", query = "SELECT p FROM Partita p WHERE p.data = :data AND (p.squadraCasa = :squadraCasa OR p.squadraOspiti = :squadraOspiti)"),
-@NamedQuery(name = "deleteAllPartite", query = "DELETE FROM Partita p")
+@NamedQuery(name = "deleteAllPartite", query = "DELETE FROM Partita p"),
+@NamedQuery(name = "getAllPartite", query = "SELECT p FROM Partita p")
 })
 public class Partita {
 
