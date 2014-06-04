@@ -1,6 +1,6 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,7 +38,11 @@
 								action="#{squadraController.findSquadra(partitaDisputata.squadraOspiti.id)}"
 								value="#{partitaDisputata.squadraOspiti.nome}">
 							</h:commandLink></td>
-						<td>${partitaDisputata.data}</td>
+						<td>
+						
+						<h:outputText value="#{partitaDisputata.data}">
+      <f:convertDateTime pattern="dd-MM-yyyy 'h' HH:mm" locale="it" type="both" />
+</h:outputText></td>
 					</tr>
 					<tr></tr>
 				</c:forEach>
@@ -68,10 +72,11 @@
 								value="#{partitaDaDisputare.squadraOspiti.nome}">
 							</h:commandLink></td>
 						<td>
-						
+
 						<h:outputText value="#{partitaDaDisputare.data}">
       <f:convertDateTime pattern="dd-MM-yyyy 'h' HH:mm" locale="it" type="both" />
-</h:outputText></td>
+</h:outputText>
+</td>
 					</tr>
 					<tr></tr>
 				</c:forEach>

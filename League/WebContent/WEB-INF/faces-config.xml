@@ -1,225 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<faces-config
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
-    version="2.1">
-<managed-bean>
- <managed-bean-name>squadraController</managed-bean-name>
- <managed-bean-class>it.uniroma3.controller.SquadraController</managed-bean-class>
- <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- 
- <managed-bean>
- <managed-bean-name>giocatoreController</managed-bean-name>
- <managed-bean-class>it.uniroma3.controller.GiocatoreController</managed-bean-class>
- <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- 
-  <managed-bean>
- <managed-bean-name>partitaController</managed-bean-name>
- <managed-bean-class>it.uniroma3.controller.PartitaController</managed-bean-class>
- <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- <managed-bean>
- <managed-bean-name>responsabileController</managed-bean-name>
- <managed-bean-class>it.uniroma3.controller.ResponsabileController</managed-bean-class>
- <managed-bean-scope>session</managed-bean-scope>
- </managed-bean>
- 
- 
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+	version="2.1">
+	<managed-bean>
+		<managed-bean-name>squadraController</managed-bean-name>
+		<managed-bean-class>it.uniroma3.controller.SquadraController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
-  <navigation-rule>
-   <from-view-id>/index.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>logged</from-outcome>
-      <to-view-id>/responsabileHome.jsp</to-view-id>
-   </navigation-case>
-   <navigation-case>
-      <from-outcome>errore</from-outcome>
-      <to-view-id>/riprovaLogin.jsp</to-view-id>
-   </navigation-case>
-         <navigation-case>
-      <from-outcome>squadre</from-outcome>
-      <to-view-id>/squadre.jsp</to-view-id>
-   </navigation-case>
-          <navigation-case>
-      <from-outcome>partite</from-outcome>
-      <to-view-id>/partite.jsp</to-view-id>
-   </navigation-case>
+	<managed-bean>
+		<managed-bean-name>giocatoreController</managed-bean-name>
+		<managed-bean-class>it.uniroma3.controller.GiocatoreController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
-
-    <navigation-case>
-      <from-outcome>erroreMaglia</from-outcome>
-      <to-view-id>/erroreMaglia.jsp</to-view-id>
-   </navigation-case>
-</navigation-rule>
+	<managed-bean>
+		<managed-bean-name>partitaController</managed-bean-name>
+		<managed-bean-class>it.uniroma3.controller.PartitaController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>responsabileController</managed-bean-name>
+		<managed-bean-class>it.uniroma3.controller.ResponsabileController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
 
 
-     <navigation-rule>
-   <from-view-id>/confermaCalendario.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>partite</from-outcome>
-      <to-view-id>/partite.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
-   
-   <navigation-rule>
-   <from-view-id>/gestioneSquadra.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>rimosso</from-outcome>
-      <to-view-id>/gestioneSquadra.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>giocatore</from-outcome>
-      <to-view-id>/giocatore.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
-   
-   
-   
-        <navigation-rule>
-   <from-view-id>/squadra.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>giocatore</from-outcome>
-      <to-view-id>/giocatore.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>erroreMaglia</from-outcome>
-      <to-view-id>/erroreMaglia.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
-   
-           <navigation-rule>
-   <from-view-id>/updatePartita.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>partita</from-outcome>
-      <to-view-id>/partita.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
-   
-   
-   
-           <navigation-rule>
-   <from-view-id>/partite.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>partita</from-outcome>
-      <to-view-id>/partita.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>squadra</from-outcome>
-      <to-view-id>/squadra.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
+	<navigation-rule>
+		<from-view-id>/index.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>logged</from-outcome>
+			<to-view-id>/responsabileHome.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>errore</from-outcome>
+			<to-view-id>/riprovaLogin.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>squadre</from-outcome>
+			<to-view-id>/squadre.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>partite</from-outcome>
+			<to-view-id>/partite.jsp</to-view-id>
+		</navigation-case>
+
+
+		<navigation-case>
+			<from-outcome>erroreMaglia</from-outcome>
+			<to-view-id>/erroreMaglia.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 
 
- <navigation-rule>
-   <from-view-id>/newSquadra.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>squadraIscritta</from-outcome>
-      <to-view-id>/squadraIscritta.jsp</to-view-id>
-   </navigation-case>   <navigation-case>
-      <from-outcome>squadra</from-outcome>
-      <to-view-id>/squadra.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
-   
-   
-   
-    <navigation-rule>
-   <from-view-id>/aggiungiGiocatore.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>giocatore</from-outcome>
-      <to-view-id>/aggiuntoGiocatore.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>magliaInUso</from-outcome>
-      <to-view-id>/erroreMaglia.jsp</to-view-id>
-   </navigation-case>
-</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/confermaCalendario.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>partite</from-outcome>
+			<to-view-id>/partite.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/gestioneSquadra.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>rimosso</from-outcome>
+			<to-view-id>/gestioneSquadra.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>giocatore</from-outcome>
+			<to-view-id>/giocatore.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 
 
-     <navigation-rule>
-   <from-view-id>/registrazione.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>registrato</from-outcome>
-      <to-view-id>/registratoConSuccesso.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
+	<navigation-rule>
+		<from-view-id>/squadra.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>giocatore</from-outcome>
+			<to-view-id>/giocatore.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>erroreMaglia</from-outcome>
+			<to-view-id>/erroreMaglia.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/updatePartita.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>partita</from-outcome>
+			<to-view-id>/partita.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+		<navigation-rule>
+		<from-view-id>/partita.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>partite</from-outcome>
+			<to-view-id>/partite.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 
 
-    <navigation-rule>
-   <from-view-id>/squadre.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>squadra</from-outcome>
-      <to-view-id>/squadra.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>squadraIscritta</from-outcome>
-      <to-view-id>/squadraIscritta.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
-   
-   <navigation-rule>
-   <from-view-id>/responsabileHome.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>squadra</from-outcome>
-      <to-view-id>/squadra.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>logout</from-outcome>
-      <to-view-id>/index.jsp</to-view-id>
-   </navigation-case>
-   <navigation-case>
-      <from-outcome>gestioneSquadra</from-outcome>
-      <to-view-id>/gestioneSquadra.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
-   
-   
-      <navigation-rule>
-   <from-view-id>/amministratoreHome.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>confermaCalendario</from-outcome>
-      <to-view-id>/confermaCalendario.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>squadre</from-outcome>
-      <to-view-id>/squadre.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>logout</from-outcome>
-      <to-view-id>/index.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
- 
-   <navigation-rule>
-   <from-view-id>/loginAmministratore.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>loginAmministratore</from-outcome>
-      <to-view-id>/amministratoreHome.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>squadre</from-outcome>
-      <to-view-id>/squadre.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>logout</from-outcome>
-      <to-view-id>/index.jsp</to-view-id>
-   </navigation-case>
-   </navigation-rule>
+	<navigation-rule>
+		<from-view-id>/partite.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>partita</from-outcome>
+			<to-view-id>/partita.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>squadra</from-outcome>
+			<to-view-id>/squadra.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
-<navigation-rule>
-   <from-view-id>/riprovaLogin.jsp</from-view-id>
-   <navigation-case>
-      <from-outcome>logged</from-outcome>
-      <to-view-id>/index.jsp</to-view-id>
-   </navigation-case>
-</navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>/newSquadra.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>squadraIscritta</from-outcome>
+			<to-view-id>/squadraIscritta.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>squadra</from-outcome>
+			<to-view-id>/squadra.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+
+	<navigation-rule>
+		<from-view-id>/aggiungiGiocatore.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>giocatore</from-outcome>
+			<to-view-id>/aggiuntoGiocatore.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>magliaInUso</from-outcome>
+			<to-view-id>/erroreMaglia.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+
+	<navigation-rule>
+		<from-view-id>/registrazione.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>registrato</from-outcome>
+			<to-view-id>/registratoConSuccesso.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+
+	<navigation-rule>
+		<from-view-id>/squadre.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>squadra</from-outcome>
+			<to-view-id>/squadra.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>squadraIscritta</from-outcome>
+			<to-view-id>/squadraIscritta.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/responsabileHome.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>squadra</from-outcome>
+			<to-view-id>/squadra.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>gestioneSquadra</from-outcome>
+			<to-view-id>/gestioneSquadra.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<from-view-id>/amministratoreHome.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>confermaCalendario</from-outcome>
+			<to-view-id>/confermaCalendario.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>calendarioSvuotato</from-outcome>
+			<to-view-id>/calendarioSvuotato.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>squadre</from-outcome>
+			<to-view-id>/squadre.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/loginAmministratore.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>loginAmministratore</from-outcome>
+			<to-view-id>/amministratoreHome.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>squadre</from-outcome>
+			<to-view-id>/squadre.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/riprovaLogin.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>logged</from-outcome>
+			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>

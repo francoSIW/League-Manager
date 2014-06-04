@@ -15,13 +15,13 @@
 			<div>
 				${partitaController.partita.squadraCasa.nome}:
 				<h:inputText value="#{partitaController.puntiCasa}" required="true"
-					requiredMessage="Name is mandatory" id="puntiCasa" />
+					requiredMessage="Questo campo e' obbligatorio!" id="puntiCasa" />
 				<h:message for="puntiCasa" />
 			</div>
 			<div>
 				${partitaController.partita.squadraOspiti.nome}:
 				<h:inputText value="#{partitaController.puntiOspiti}"
-					required="true" requiredMessage="Name is mandatory"
+					required="true" requiredMessage="Questo campo e' obbligatorio!"
 					id="puntiOspiti" />
 				<h:message for="puntiOspiti" />
 			</div>

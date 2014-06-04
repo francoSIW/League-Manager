@@ -73,6 +73,11 @@ public class PartitaController {
 		return "confermaCalendario";
 	}
 
+	public String svuotaCalendario() {
+		partitaFacade.svuotaCalendario();
+		return "calendarioSvuotato";
+	}
+	
 	public String findPartita(long id){
 		this.partita = this.partitaFacade.getPartita(id);
 		return "partita";

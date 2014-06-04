@@ -3,12 +3,15 @@ package it.uniroma3.model;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -84,41 +87,65 @@ public class PartitaFacade {
 
 
 	public List<Partita> generaPartite(List<Squadra> squadre){
-		/*Calendar date = Calendar.getInstance();
-		date.set(Calendar.YEAR, 1999);
-		date.set(Calendar.MONTH, 7);
-		date.set(Calendar.DAY_OF_MONTH, 26);
-		date.set(Calendar.HOUR, 21);
-		date.set(Calendar.MINUTE, 00);
-		 */
-
 
 		Date date = new Date(114, 06, 02, 21, 00);
-		Date incremento = new Date(0, 0, 15, 0, 0);
-
+		Date fineCampionato = DateUtils.addDays(date, 7*((squadre.size()-2)));
+		
+		
 		for(Squadra s1 :  squadre) {
-			Date tempDate = date;
+			boolean inCasa = true;
 			for(Squadra s2 :  squadre.subList(squadre.indexOf(s1), squadre.size())) {
-				if(!s1.equals(s2))
-				{
-					createPartita( s1.getVia(), s1, s2, tempDate);
-					createPartita( s2.getVia(), s2, s1, tempDate);
-				Long sum = tempDate.getTime() + incremento.getTime();
-				tempDate = new Date(sum);
+				
+				if(!s1.equals(s2)) {
+
+					while(!date.after(fineCampionato)) {
+						Query trovaSquadraInPartita = em.createNamedQuery("trovaSquadraInPartita");
+						trovaSquadraInPartita.setParameter("data", date);
+						trovaSquadraInPartita.setParameter("squadraCasa", s1);
+						trovaSquadraInPartita.setParameter("squadraOspiti", s2);
+						Collection partita1 = trovaSquadraInPartita.getResultList();
+						trovaSquadraInPartita.setParameter("squadraCasa", s2);
+						trovaSquadraInPartita.setParameter("squadraOspiti", s1);
+						Collection partita2 = trovaSquadraInPartita.getResultList();
+
+						if(partita1.isEmpty() && partita2.isEmpty()) {
+
+							if(inCasa) {
+								createPartita( s1.getVia(), s1, s2, date);
+								createPartita( s2.getVia(), s2, s1, DateUtils.addDays(date, 7*(squadre.size()-1)));
+								inCasa = false;
+								break;
+							} else {
+								createPartita( s2.getVia(), s2, s1, date);
+								createPartita( s1.getVia(), s1, s2, DateUtils.addDays(date, 7*(squadre.size()-1)));
+								inCasa = true;
+								break;
+							}
+						}
+
+						else
+							date = DateUtils.addDays(date, 7);
+
+					}
+					date = new Date(114, 06, 02, 21, 00);
+
 				}
 			}
-		Long sum = date.getTime() + incremento.getTime();
-		date = new Date(sum);
+			date = new Date(114, 06, 02, 21, 00);
 		}
-		return getAllPartiteDaDisputare();      
+			return getAllPartiteDaDisputare();      
+		}
+
+
+	public void svuotaCalendario() {
+		em.createNamedQuery("deleteAllPartite").executeUpdate();
 	}
+	
 
+		public  void createPartita(String luogo, Squadra squadraA,	Squadra squadraB, Date data) {
+			Partita partita = new Partita(luogo, squadraA , squadraB, data);
+			em.persist(partita);
 
-
-	public  void createPartita(String luogo, Squadra squadraA,	Squadra squadraB, Date data) {
-		Partita partita = new Partita(luogo, squadraA , squadraB, data);
-		em.persist(partita);
+		}
 
 	}
-
-}

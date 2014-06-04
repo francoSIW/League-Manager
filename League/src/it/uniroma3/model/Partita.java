@@ -18,9 +18,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
-//dfgh
-@Entity
 
+@Entity
+@NamedQueries({
+@NamedQuery(name = "trovaSquadraInPartita", query = "SELECT p FROM Partita p WHERE p.data = :data AND (p.squadraCasa = :squadraCasa OR p.squadraOspiti = :squadraOspiti)"),
+@NamedQuery(name = "deleteAllPartite", query = "DELETE FROM Partita p")
+})
 public class Partita {
 
 	@Id
@@ -42,10 +45,10 @@ public class Partita {
 	@Column
 	private Boolean disputata;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Squadra squadraCasa;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private Squadra squadraOspiti;
 
 	public Partita(){}
