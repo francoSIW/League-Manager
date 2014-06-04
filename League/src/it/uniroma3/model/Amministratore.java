@@ -19,11 +19,11 @@ import org.apache.openjpa.persistence.jdbc.Unique;
 })
 @Table (name = "Amministratore" ,uniqueConstraints= @UniqueConstraint(columnNames={"pin"}))
 public class Amministratore {
-		
+
 	/**
 	 * 
 	 */
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -36,7 +36,7 @@ public class Amministratore {
 	private Integer pin;
 	@Column(nullable=false)
 	private String password;
-	
+
 	public Amministratore(String nome, String cognome, Integer pin,
 			String password) {
 		super();
@@ -45,9 +45,9 @@ public class Amministratore {
 		this.pin = pin;
 		this.password = password;
 	}
-	
+
 	public Amministratore(){}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -79,5 +79,5 @@ public class Amministratore {
 		this.password = password;
 	}
 
-	
+
 }

@@ -14,60 +14,70 @@
 		<h1>Partite</h1>
 
 		<h:form>
-			
+
 			<h1>Partite disputate:</h1>
 			<table>
 				<tr>
 					<th>Squadra casa</th>
 					<th>Risultato</th>
 					<th>Squadra Fuori-casa</th>
+					<th>Data</th>
 				</tr>
-				<c:forEach var="partitaDisputata" items="#{partitaController.partiteDisputate}">
+				<c:forEach var="partitaDisputata"
+					items="#{partitaController.partiteDisputate}">
 					<tr>
 						<td><h:commandLink
 								action="#{squadraController.findSquadra(partitaDisputata.squadraCasa.id)}"
 								value="#{partitaDisputata.squadraCasa.nome}">
 							</h:commandLink></td>
 						<td><h:commandLink
-							action="#{partitaController.findPartita(partitaDisputata.id)}"
-							value="#{partitaDisputata.puntiCasa} - #{partitaDisputata.puntiOspiti}">
-						</h:commandLink></td>
+								action="#{partitaController.findPartita(partitaDisputata.id)}"
+								value="#{partitaDisputata.puntiCasa} - #{partitaDisputata.puntiOspiti}">
+							</h:commandLink></td>
 						<td><h:commandLink
-							action="#{squadraController.findSquadra(partitaDisputata.squadraOspiti.id)}"
-							value="#{partitaDisputata.squadraOspiti.nome}">
-						</h:commandLink>
-					</td>
+								action="#{squadraController.findSquadra(partitaDisputata.squadraOspiti.id)}"
+								value="#{partitaDisputata.squadraOspiti.nome}">
+							</h:commandLink></td>
+						<td>${partitaDisputata.data}</td>
 					</tr>
+					<tr></tr>
 				</c:forEach>
 			</table>
-			
+
 			<h1>Partite da disputare:</h1>
 			<table>
 				<tr>
 					<th>Squadra casa</th>
 					<th>Risultato</th>
 					<th>Squadra Fuori-casa</th>
+					<th>Data</th>
 				</tr>
-				<c:forEach var="partita" items="#{partitaController.partiteDaDisputare}">
+				<c:forEach var="partitaDaDisputare"
+					items="#{partitaController.partiteDaDisputare}">
 					<tr>
 						<td><h:commandLink
-								action="#{squadraController.findSquadra(partita.squadraCasa.id)}"
-								value="#{partita.squadraCasa.nome}">
+								action="#{squadraController.findSquadra(partitaDaDisputare.squadraCasa.id)}"
+								value="#{partitaDaDisputare.squadraCasa.nome}">
 							</h:commandLink></td>
 						<td><h:commandLink
-							action="#{partitaController.findPartita(partita.id)}"
-							value="#{partita.puntiCasa} - #{partita.puntiOspiti}">
-						</h:commandLink></td>
+								action="#{partitaController.findPartita(partitaDaDisputare.id)}"
+								value="#{partitaDaDisputare.puntiCasa} - #{partitaDaDisputare.puntiOspiti}">
+							</h:commandLink></td>
 						<td><h:commandLink
-							action="#{squadraController.findSquadra(partita.squadraOspiti.id)}"
-							value="#{partita.squadraOspiti.nome}">
-						</h:commandLink>
-					</td>
+								action="#{squadraController.findSquadra(partitaDaDisputare.squadraOspiti.id)}"
+								value="#{partitaDaDisputare.squadraOspiti.nome}">
+							</h:commandLink></td>
+						<td>
+						
+						<h:outputText value="#{partitaDaDisputare.data}">
+      <f:convertDateTime pattern="dd-MM-yyyy 'h' HH:mm" locale="it" type="both" />
+</h:outputText></td>
 					</tr>
+					<tr></tr>
 				</c:forEach>
 			</table>
-				</br>
-					<a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a>
+			</br>
+			<a href='<c:url value="/faces/index.jsp" />'>Torna alla Home</a>
 		</h:form>
 
 	</f:view>

@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>TUTTE LE PARTITE DEL TORNEO</title>
 </head>
-<body style="background-color:#a8f7ff;">
+<body style="background-color: #a8f7ff;">
 	<h:form>
 		<table>
 			<tr>
@@ -20,27 +20,27 @@
 				<th>PuntiA</th>
 				<th>PuntiB</th>
 			</tr>
-			
+
 			<c:forEach var="partita" items="#{partitaController.partite}">
 				<tr>
 					<td><h:commandLink action="#{partitaController.findPartita}"
 							value="#{Partita.luogo}">
 							<f:param name="id" value="#{partita.id}" />
 						</h:commandLink></td>
-						
+
 					<td><h:commandLink action="#{partitaController.findPartita}"
 							value="#{Partita.squadraA}">
 							<f:param name="id" value="#{partita.id}" />
 						</h:commandLink></td>
-					 
+
 					<td><h:commandLink action="#{partitaController.findPartita}"
 							value="#{Partita.squadraB}">
 							<f:param name="id" value="#{partita.id}" />
 						</h:commandLink></td>
-						
+
 					<td></td>
 					<td></td>
-					
+
 				</tr>
 			</c:forEach>
 		</table>

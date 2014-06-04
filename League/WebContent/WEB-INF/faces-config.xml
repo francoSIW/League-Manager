@@ -33,25 +33,22 @@
   <navigation-rule>
    <from-view-id>/index.jsp</from-view-id>
    <navigation-case>
-      <from-outcome>confermaCalendario</from-outcome>
-      <to-view-id>/confermaCalendario.jsp</to-view-id>
+      <from-outcome>logged</from-outcome>
+      <to-view-id>/responsabileHome.jsp</to-view-id>
    </navigation-case>
    <navigation-case>
       <from-outcome>errore</from-outcome>
       <to-view-id>/riprovaLogin.jsp</to-view-id>
    </navigation-case>
+         <navigation-case>
+      <from-outcome>squadre</from-outcome>
+      <to-view-id>/squadre.jsp</to-view-id>
+   </navigation-case>
           <navigation-case>
       <from-outcome>partite</from-outcome>
       <to-view-id>/partite.jsp</to-view-id>
    </navigation-case>
-      <navigation-case>
-      <from-outcome>squadre</from-outcome>
-      <to-view-id>/squadre.jsp</to-view-id>
-   </navigation-case>
-      <navigation-case>
-      <from-outcome>logged</from-outcome>
-      <to-view-id>/responsabileHome.jsp</to-view-id>
-   </navigation-case>
+
 
     <navigation-case>
       <from-outcome>erroreMaglia</from-outcome>
@@ -183,8 +180,39 @@
       <to-view-id>/gestioneSquadra.jsp</to-view-id>
    </navigation-case>
    </navigation-rule>
+   
+   
+      <navigation-rule>
+   <from-view-id>/amministratoreHome.jsp</from-view-id>
+   <navigation-case>
+      <from-outcome>confermaCalendario</from-outcome>
+      <to-view-id>/confermaCalendario.jsp</to-view-id>
+   </navigation-case>
+      <navigation-case>
+      <from-outcome>squadre</from-outcome>
+      <to-view-id>/squadre.jsp</to-view-id>
+   </navigation-case>
+      <navigation-case>
+      <from-outcome>logout</from-outcome>
+      <to-view-id>/index.jsp</to-view-id>
+   </navigation-case>
+   </navigation-rule>
  
-
+   <navigation-rule>
+   <from-view-id>/loginAmministratore.jsp</from-view-id>
+   <navigation-case>
+      <from-outcome>loginAmministratore</from-outcome>
+      <to-view-id>/amministratoreHome.jsp</to-view-id>
+   </navigation-case>
+      <navigation-case>
+      <from-outcome>squadre</from-outcome>
+      <to-view-id>/squadre.jsp</to-view-id>
+   </navigation-case>
+      <navigation-case>
+      <from-outcome>logout</from-outcome>
+      <to-view-id>/index.jsp</to-view-id>
+   </navigation-case>
+   </navigation-rule>
 
 <navigation-rule>
    <from-view-id>/riprovaLogin.jsp</from-view-id>

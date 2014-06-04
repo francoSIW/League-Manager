@@ -19,30 +19,30 @@ import javax.servlet.ServletException;
 @Stateless(name="gFacade")
 public class GiocatoreFacade {
 
-    @PersistenceContext(unitName = "league-unit")
-    private EntityManager em;
-    
-	   public Giocatore createGiocatore(String nome, String cognome, Integer eta, Integer numeroMaglia, Squadra squadra) {
+	@PersistenceContext(unitName = "league-unit")
+	private EntityManager em;
+
+	public Giocatore createGiocatore(String nome, String cognome, Integer eta, Integer numeroMaglia, Squadra squadra) {
 
 		Giocatore giocatore = new Giocatore(nome, cognome, eta, numeroMaglia, squadra);
 		em.persist(giocatore);
 		return giocatore;
-	   }
+	}
 
 
-	   public void deleteGiocatore(Long id){
-		   Giocatore giocatore = em.find(Giocatore.class, id);
-		   em.remove(giocatore);
-	   }
+	public void deleteGiocatore(Long id){
+		Giocatore giocatore = em.find(Giocatore.class, id);
+		em.remove(giocatore);
+	}
 
-	   //ritorna una istanza detached, no operazioni sul db!!
-	   public Giocatore getGiocatore(Long id) {
-	          Giocatore giocatore = em.find(Giocatore.class, id);
-	          return giocatore;
-	  }
+	//ritorna una istanza detached, no operazioni sul db!!
+	public Giocatore getGiocatore(Long id) {
+		Giocatore giocatore = em.find(Giocatore.class, id);
+		return giocatore;
+	}
 
-	   public Squadra getSquadra(Long id) {
-	          Squadra squadra = em.find(Squadra.class, id);
-	          return squadra;
-	  }
+	public Squadra getSquadra(Long id) {
+		Squadra squadra = em.find(Squadra.class, id);
+		return squadra;
+	}
 }

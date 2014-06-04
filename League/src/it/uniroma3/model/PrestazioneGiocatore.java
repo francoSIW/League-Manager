@@ -22,6 +22,6 @@ public class PrestazioneGiocatore {
 
 	/*@OneToOne(cascade ={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Giocatore giocatore;
-*/
+	 */
 
 }

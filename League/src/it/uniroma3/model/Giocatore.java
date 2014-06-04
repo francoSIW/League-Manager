@@ -20,10 +20,10 @@ import javax.persistence.UniqueConstraint;
 public class Giocatore {
 
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="giocatore_id")
-    private Long id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="giocatore_id")
+	private Long id;
 
 	@Column(nullable=false)
 	private String nome;

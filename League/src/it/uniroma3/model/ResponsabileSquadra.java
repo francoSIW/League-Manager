@@ -8,11 +8,11 @@ public class ResponsabileSquadra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	
+
+
 	@Column(nullable=false)
 	private String email;
-	
+
 	@Column(nullable=false)
 	private String password;
 	@Column(nullable=false)
@@ -20,12 +20,12 @@ public class ResponsabileSquadra {
 	@Column(nullable=false)
 	private String cognome;
 
-	
+
 
 	@OneToOne(cascade ={CascadeType.REMOVE, CascadeType.MERGE}, fetch=FetchType.EAGER)
 	@JoinColumn(name="squadra_id")
 	private Squadra squadra;
-	
+
 	public ResponsabileSquadra(){}
 
 	public ResponsabileSquadra(String nome, String cognome,

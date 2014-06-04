@@ -27,18 +27,18 @@ public class Partita {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-    @Temporal (TemporalType.DATE)
-	private Calendar data;
+	@Temporal (TemporalType.TIMESTAMP)
+	private Date data;
 
 	@Column
 	private String luogo;
-	
+
 	@Column
 	private Integer puntiCasa;
 
 	@Column
 	private Integer puntiOspiti;
-	
+
 	@Column
 	private Boolean disputata;
 
@@ -50,7 +50,7 @@ public class Partita {
 
 	public Partita(){}
 
-	public Partita(String luogo, Squadra s1, Squadra s2, Calendar data) {
+	public Partita(String luogo, Squadra s1, Squadra s2, Date data) {
 		this.luogo = luogo;
 		this.disputata = false;
 		this.squadraCasa = s1;
@@ -58,7 +58,7 @@ public class Partita {
 		this.data = data;
 		this.puntiCasa = 0;
 		this.puntiOspiti = 0;
-	
+
 	}
 
 	public boolean isDisputata() {
@@ -77,11 +77,11 @@ public class Partita {
 		this.id = id;
 	}
 
-	public Calendar getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(Calendar data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 

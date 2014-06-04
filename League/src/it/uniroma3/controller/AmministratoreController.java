@@ -36,9 +36,9 @@ public class AmministratoreController implements Serializable {
 	private AmministratoreFacade adminFacade;
 	private boolean loggedIn;
 
-	@EJB(beanName="aFacade")
+	@EJB(beanName="amministratoreFacade")
 
-    private static final Integer predefinitoPin = 123456; //che fantasia
+	private static final Integer predefinitoPin = 123456; //che fantasia
 	private static final String predefinitaPass = "league";
 	private static final Amministratore pre = new Amministratore("nomePredefinito", "cognomepredefinito",predefinitoPin,predefinitaPass);
 
@@ -61,32 +61,32 @@ public class AmministratoreController implements Serializable {
 	}
 
 
-    public String Login(Amministratore a) {
+	public String login(Amministratore a) {
 
-    	if (predefinitoPin == a.getPin() && (predefinitaPass.equals(a.getPassword()))){
-    		 this.loggedIn = true;
-    		return this.toWelcome();}
-    	else
-    	try{
-    		boolean inDB = 	this.adminFacade.findAdminByPin(a.getPin()).getPassword().equals(a.getPassword());
-    		if(inDB) {
-    			this.loggedIn = true ;
-    			return this.toWelcome();
-    		}
-    		else return this.toLogin() ;
-    	}
-    	catch(NoResultException e){
-    		return this.toLogin() ;}
-    	
-    }
-    
-    public String doLogout() {
-        // Set the paremeter indicating that user is logged in to false
-        this.loggedIn = false;
-         
-         
-        return this.toLogin();
-    }
+		if (predefinitoPin == a.getPin() && (predefinitaPass.equals(a.getPassword()))){
+			this.loggedIn = true;
+			return "amministratoreHome";}
+		else
+			try{
+				boolean inDB = 	this.adminFacade.findAdminByPin(a.getPin()).getPassword().equals(a.getPassword());
+				if(inDB) {
+					this.loggedIn = true ;
+					return "amministratoreHome";
+				}
+				else return "loginAmministratore";
+			}
+		catch(NoResultException e){
+			return "loginAmministratore";}
+
+	}
+
+	public String doLogout() {
+		// Set the paremeter indicating that user is logged in to false
+		this.loggedIn = false;
+
+
+		return "loginAmministratore";
+	}
 
 	public Amministratore getAdmin() {
 		return admin;

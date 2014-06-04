@@ -52,14 +52,14 @@ public class GiocatoreController {
 		if(squadra.getId() == null)
 			return "magliaInUso";
 		else {
-		this.giocatore = giocatoreFacade.createGiocatore(this.nome, this.cognome, this.eta, this.numeroMaglia, squadra);
-		squadra.getGiocatori().add(this.giocatore);
-		return "giocatore"; 
+			this.giocatore = giocatoreFacade.createGiocatore(this.nome, this.cognome, this.eta, this.numeroMaglia, squadra);
+			squadra.getGiocatori().add(this.giocatore);
+			return "giocatore"; 
 		}//}
 		/*catch(Exception e){
 			return "magliaInUso";
 		}*/
-		}
+	}
 
 	public String deleteGiocatore(Long id, Squadra squadra){
 		this.giocatore = giocatoreFacade.getGiocatore(id);
@@ -73,7 +73,7 @@ public class GiocatoreController {
 		this.squadra =  responsabile.getSquadra();
 		this.giocatori = squadra.getGiocatori();	
 		return "gestioneSquadra";
-		}
+	}
 
 
 	public String findGiocatore(Long id) {

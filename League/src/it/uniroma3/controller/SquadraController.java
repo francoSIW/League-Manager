@@ -24,7 +24,7 @@ public class SquadraController {
 	private List<Squadra> squadre;
 	private List<Giocatore> giocatori;
 
-	
+
 
 	@EJB(beanName="sFacade")
 	private SquadraFacade squadraFacade;
@@ -38,7 +38,7 @@ public class SquadraController {
 		this.giocatori = giocatori;
 	}
 
-	
+
 	public List<Squadra> getAllSquadre() {
 		this.squadre = squadraFacade.getAllSquadre();
 		return this.squadre;
@@ -70,7 +70,7 @@ public class SquadraController {
 		this.via = via;
 	}
 
-	
+
 	public SquadraController() { }   
 
 
@@ -78,27 +78,27 @@ public class SquadraController {
 		this.squadre = squadre;
 	}
 
-	
+
 	public String createSquadra(ResponsabileSquadra responsabile) { 
 		this.responsabile = responsabile;
 		this.squadra = squadraFacade.createSquadra(this.nomeSquadra, this.colori, this.via, responsabile);
 		return "squadraIscritta"; 
-		}
+	}
 
 
 	public String listaSquadre() {
 		this.squadre = squadraFacade.getAllSquadre();
 		return "squadre"; 
 	}
-	
+
 	public String findSquadra(Long id) {
 		this.squadra = squadraFacade.getSquadra(id);
 		this.giocatori = this.squadra.getGiocatori();	
 		return "squadra";
-		}
-	
-	
-	
+	}
+
+
+
 	public Long getId() {
 		return id;
 	}
@@ -150,5 +150,5 @@ public class SquadraController {
 
 
 
-	
+
 }

@@ -17,29 +17,29 @@ import javax.persistence.criteria.Root;
 @Stateless(name="sFacade")
 public class SquadraFacade {
 
-    @PersistenceContext(unitName = "league-unit")
-    private EntityManager em;
-    
-	   public Squadra createSquadra(String nome, String colori, String via, ResponsabileSquadra responsabile) {
+	@PersistenceContext(unitName = "league-unit")
+	private EntityManager em;
+
+	public Squadra createSquadra(String nome, String colori, String via, ResponsabileSquadra responsabile) {
 		Squadra squadra = new Squadra(nome, colori, via, responsabile);
 		responsabile.setSquadra(squadra);
 		//chiedere al professore
 		em.merge(responsabile);
 		return squadra;
-	   }
+	}
 
-	   public Squadra getSquadra(Long id) {
+	public Squadra getSquadra(Long id) {
 
-	          Squadra squadra;
-	        	  squadra = em.find(Squadra.class, id);
-	          return squadra;
-	  }
+		Squadra squadra;
+		squadra = em.find(Squadra.class, id);
+		return squadra;
+	}
 
-		public List<Squadra> getAllSquadre() {
-	        List<Squadra> squadre = em.createNamedQuery("trovaSquadre", Squadra.class).getResultList();
-			return squadre;
+	public List<Squadra> getAllSquadre() {
+		List<Squadra> squadre = em.createNamedQuery("trovaSquadre", Squadra.class).getResultList();
+		return squadre;
 
-		}
+	}
 
 
 

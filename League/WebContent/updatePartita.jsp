@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
-    pageEncoding="US-ASCII"%>
+	pageEncoding="US-ASCII"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,25 +10,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-<f:view>
-<h:form>
-    <div>${partitaController.partita.squadraCasa.nome}: <h:inputText value="#{partitaController.puntiCasa}" 
-                     required="true"
-                     requiredMessage="Name is mandatory"
-                     id="puntiCasa"/> <h:message for="puntiCasa" />
-	</div>
-     <div>${partitaController.partita.squadraOspiti.nome}: <h:inputText value="#{partitaController.puntiOspiti}" 
-                     required="true"
-                     requiredMessage="Name is mandatory"
-                     id="puntiOspiti"/> <h:message for="puntiOspiti" />
-	</div>
-    
-	<div>
-		<h:commandButton value="aggiorna"  action="#{partitaController.updatePartita}"/>
+	<f:view>
+		<h:form>
+			<div>
+				${partitaController.partita.squadraCasa.nome}:
+				<h:inputText value="#{partitaController.puntiCasa}" required="true"
+					requiredMessage="Name is mandatory" id="puntiCasa" />
+				<h:message for="puntiCasa" />
+			</div>
+			<div>
+				${partitaController.partita.squadraOspiti.nome}:
+				<h:inputText value="#{partitaController.puntiOspiti}"
+					required="true" requiredMessage="Name is mandatory"
+					id="puntiOspiti" />
+				<h:message for="puntiOspiti" />
+			</div>
 
-	</div>
-	<li><a href='index.html'>Torna alla Home</a></li>
-</h:form>
-</f:view>
+			<div>
+				<h:commandButton value="aggiorna"
+					action="#{partitaController.updatePartita}" />
+
+			</div>
+			<a href='<c:url value="/faces/amministratoreHome.jsp" />'>Torna
+				alla Home</a>
+		</h:form>
+	</f:view>
 </body>
 </html>

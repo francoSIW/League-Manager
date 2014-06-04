@@ -33,7 +33,7 @@
 									requiredMessage="Colors are mandatory" id="code" />
 								<h:message for="code" />
 							</div>
- 
+
 							<div>
 								Via:
 								<h:inputText value="#{squadraController.via}" required="true"

@@ -11,30 +11,30 @@ import javax.persistence.*;
 @Table(name="squadre")
 public class Squadra {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="squadra_id")
-    private Long id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="squadra_id")
+	private Long id;
 
 	@Column(name="nome", nullable=false)
 	private String nome;
-	
+
 	@Column(nullable=false)
 	private String coloriSociali;
-	
+
 	@Column(nullable=false)
 	private String via;
-	
+
 	@Column
 	private Integer punti;
 
 	@OneToMany(mappedBy="squadra", cascade = {CascadeType.REMOVE}, fetch=FetchType.EAGER)
 	private List<Giocatore> giocatori;
-	
+
 	@OneToOne(cascade ={CascadeType.REMOVE, CascadeType.MERGE}, fetch=FetchType.EAGER)
 	private ResponsabileSquadra responsabile;
 
-	
+
 	@OneToMany(mappedBy="squadraCasa", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Partita> partiteInCasa;
 
@@ -128,7 +128,7 @@ public class Squadra {
 	public void setColoriSociali(String coloriSociali) {
 		this.coloriSociali = coloriSociali;
 	}
-	
+
 	public Integer getPunti() {
 		return punti;
 	}

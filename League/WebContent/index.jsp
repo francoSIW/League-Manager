@@ -14,61 +14,64 @@
 	<f:view>
 		<h1>----LEAGUE MANAGER-----</h1>
 		<div>
-			
 
-					<h3>Benvenuto! Accedi alla tua area personale:</h3>
 
-					<ul>
+			<h3>Benvenuto! Accedi alla tua area personale:</h3>
 
-						<li><h:form>
-								<div>
-									e-mail:
-									<h:inputText value="#{responsabileController.email}"
-										required="true" requiredMessage="email is mandatory"
-										id="email" />
-									<h:message for="email" />
-								</div>
-								<div>
-									password:
-									<h:inputSecret value="#{responsabileController.password}"
-										required="true" requiredMessage="password is mandatory"
-										validatorMessage="password: min 6 max 10 characters"
-										id="password">
-										<f:validateLength minimum="6" maximum="10" />
-									</h:inputSecret>
-									<h:message for="password" />
-								</div>
-								<div>
+			<ul>
 
-									<h:commandButton value="login"
-										action="#{responsabileController.login}" />
+				<li><h:form>
+						<div>
+							e-mail:
+							<h:inputText value="#{responsabileController.email}"
+								required="true" requiredMessage="Questo campo è obbligatorio!" id="email" />
+							<h:message for="email" />
+						</div>
+						<div>
+							password:
+							<h:inputSecret value="#{responsabileController.password}"
+								required="true" requiredMessage="Questo campo è obbligatorio!"
+								validatorMessage="La password deve avere dai 6 ai 10 caratteri."
+								id="password">
+								<f:validateLength minimum="6" maximum="10" />
+							</h:inputSecret>
+							<h:message for="password" />
+						</div>
+						<div>
 
-								</div>
-								<h5>
-									Non sei registrato e vuoi iscrivere una squadra? Clicca <a
-										href='<c:url value="/faces/registrazione.jsp" />'>qui!</a>
-								</h5>
+							<h:commandButton value="login"
+								action="#{responsabileController.login}" />
 
-							</h:form></li>
-					</ul>
+						</div>
+						<h5>
+							Non sei registrato e vuoi iscrivere una squadra? Clicca <a
+								href='<c:url value="/faces/registrazione.jsp" />'>qui!</a>
+						</h5>
 
-				<ul>
-					<li><h:form>
-							<h:commandLink action="#{squadraController.listaSquadre}"
-								value="Visualizza la classifica" />
-						</h:form></li>
-					<li><h:form>
-							<h:commandLink
-								action="#{partitaController.generaPartite(squadraController.getAllSquadre())}"
-								value="Genera Calendario" />
-						</h:form></li>
-					
-			<li><h:form>
-					<h:commandLink action="#{partitaController.listaPartite}"
-						value="Visualizza Partite" />
-				</h:form></li>
+					</h:form></li>
+			</ul>
+
+			<ul>
+				<li><h:form>
+						<h:commandLink action="#{squadraController.listaSquadre}"
+							value="Visualizza la classifica" />
+					</h:form></li>
+				<li><h:form>
+						<h:commandLink action="#{partitaController.listaPartite}"
+							value="Visualizza Partite" />
+					</h:form></li>
 			</ul>
 		</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			
+			<a href='<c:url value="/faces/loginAmministratore.jsp" />'>Accedi come Amministratore</a>
 
 	</f:view>
 </body>

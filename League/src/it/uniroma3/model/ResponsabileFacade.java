@@ -16,49 +16,49 @@ import javax.persistence.criteria.Root;
 @Stateless(name="rFacade")
 public class ResponsabileFacade {
 
-    @PersistenceContext(unitName = "league-unit")
-    private EntityManager em;
-    
-	   public ResponsabileSquadra createResponsabile(String nome, String cognome, String email, String password) {
+	@PersistenceContext(unitName = "league-unit")
+	private EntityManager em;
+
+	public ResponsabileSquadra createResponsabile(String nome, String cognome, String email, String password) {
 		ResponsabileSquadra responsabile = new ResponsabileSquadra(nome, cognome, email, password);
-		      em.persist(responsabile);
+		em.persist(responsabile);
 		return responsabile;
-	   }
+	}
 
-	   public ResponsabileSquadra getResponsabile(String email)
-	   {
-	       CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-	       CriteriaQuery<ResponsabileSquadra> criteriaQuery = criteriaBuilder.createQuery(ResponsabileSquadra.class);
-	       Root<ResponsabileSquadra> root = criteriaQuery.from(ResponsabileSquadra.class);
-	       criteriaQuery.select(root);
+	public ResponsabileSquadra getResponsabile(String email)
+	{
+		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+		CriteriaQuery<ResponsabileSquadra> criteriaQuery = criteriaBuilder.createQuery(ResponsabileSquadra.class);
+		Root<ResponsabileSquadra> root = criteriaQuery.from(ResponsabileSquadra.class);
+		criteriaQuery.select(root);
 
-	       ParameterExpression<String> params = criteriaBuilder.parameter(String.class);
-	       criteriaQuery.where(criteriaBuilder.equal(root.get("email"), params));
-	       
-	       TypedQuery<ResponsabileSquadra> query = em.createQuery(criteriaQuery);
-	    
-	       query.setParameter(params, email);
+		ParameterExpression<String> params = criteriaBuilder.parameter(String.class);
+		criteriaQuery.where(criteriaBuilder.equal(root.get("email"), params));
 
-	       List<ResponsabileSquadra> queryResult = query.getResultList();
+		TypedQuery<ResponsabileSquadra> query = em.createQuery(criteriaQuery);
 
-	       ResponsabileSquadra responsabile = null;
+		query.setParameter(params, email);
 
-	       if (!(queryResult.isEmpty()))
-	       {
-	           responsabile = queryResult.get(0);
-	       }
-	       return responsabile;
-	   }
-	   
-	  public ResponsabileSquadra autentica(String email, String password){
-		  ResponsabileSquadra responsabile = this.getResponsabile(email);
-		  if(responsabile==null)
-			  return null;
-		  else if(responsabile.getPassword().equals(password))
-			  return responsabile;
-		  else
-			  return null;
-	  }
-	   
-	  
+		List<ResponsabileSquadra> queryResult = query.getResultList();
+
+		ResponsabileSquadra responsabile = null;
+
+		if (!(queryResult.isEmpty()))
+		{
+			responsabile = queryResult.get(0);
+		}
+		return responsabile;
+	}
+
+	public ResponsabileSquadra autentica(String email, String password){
+		ResponsabileSquadra responsabile = this.getResponsabile(email);
+		if(responsabile==null)
+			return null;
+		else if(responsabile.getPassword().equals(password))
+			return responsabile;
+		else
+			return null;
+	}
+
+
 }

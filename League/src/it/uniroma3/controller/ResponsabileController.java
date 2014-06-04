@@ -21,44 +21,44 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ResponsabileController {
 	@ManagedProperty(value="#{param.id}")
-	
+
 	private Long id;
 	private String email;
 	private String password;
 	private String nome;
 	private String cognome;
-	
+
 	private ResponsabileSquadra responsabile;
 	private List<ResponsabileSquadra> responsabili;
-	
+
 	@EJB(beanName="rFacade")
 	private ResponsabileFacade responsabileFacade;
-	
+
 	public String login(){
 		this.responsabile = responsabileFacade.autentica(this.email, this.password);
 		if(this.responsabile!=null) {
-		return "logged";
+			return "logged";
 		}
 		else {
-			
+
 			return "errore";
 		}
 	}
-			 
-		public String logout() {
-			
-			this.responsabile = null;
-			
-			return "logout";
-		}
-		
-		
-	
-	
+
+	public String logout() {
+
+		this.responsabile = null;
+
+		return "logout";
+	}
+
+
+
+
 	public String registraResponsabile(){
-		
+
 		this.responsabile = responsabileFacade.createResponsabile(nome, cognome, email, password);
-		
+
 		return "registrato";
 	}
 
@@ -101,8 +101,8 @@ public class ResponsabileController {
 	public void setResponsabileFacade(ResponsabileFacade responsabileFacade) {
 		this.responsabileFacade = responsabileFacade;
 	}
-	
-	
+
+
 	public String getNome() {
 		return nome;
 	}
@@ -126,8 +126,7 @@ public class ResponsabileController {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	
+
 }
-	
-	
-	
+
+

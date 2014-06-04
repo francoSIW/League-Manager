@@ -4,6 +4,7 @@ import it.uniroma3.model.GiocatoreFacade;
 import it.uniroma3.model.PartitaFacade;
 import it.uniroma3.model.Squadra;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -22,25 +23,25 @@ import javax.persistence.ManyToOne;
 @SessionScoped
 public class PartitaController {
 	@ManagedProperty(value="#{param.id}")
-	
+
 	private Long id;
-	private Date data;
 	private String luogo;
 	private String arbitro;
 	private Partita partita ;
 	private Integer puntiCasa;
 	private Integer puntiOspiti;
+	private Calendar data;
 	private Squadra squadraA;
 	private Squadra squadraB;
 
 	private List<Partita>partiteDisputate;
 	private List<Partita>partiteDaDisputare;
-	
+
 	@EJB(beanName="pFacade")
 	private PartitaFacade partitaFacade;
-	
 
-	
+
+
 	public String listaPartite(){
 		this.partiteDaDisputare = partitaFacade.getAllPartiteDaDisputare();
 		this.partiteDisputate = partitaFacade.getAllPartiteDisputate();
@@ -71,22 +72,22 @@ public class PartitaController {
 		partitaFacade.generaPartite(squadre);
 		return "confermaCalendario";
 	}
-	
+
 	public String findPartita(long id){
 		this.partita = this.partitaFacade.getPartita(id);
 		return "partita";
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getData() {
+	public Calendar getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(Calendar data) {
 		this.data = data;
 	}
 	public String getLuogo() {
@@ -101,11 +102,11 @@ public class PartitaController {
 	public void setArbitro(String arbitro) {
 		this.arbitro = arbitro;
 	}
-	
+
 	public Integer getPuntiCasa() {
 		return puntiCasa;
 	}
-	
+
 	public void setPuntiCasa(Integer puntiCasa) {
 		this.puntiCasa = puntiCasa;
 	}
@@ -136,5 +137,5 @@ public class PartitaController {
 	public void setPartita(Partita partita) {
 		this.partita = partita;
 	}
-	
+
 }
