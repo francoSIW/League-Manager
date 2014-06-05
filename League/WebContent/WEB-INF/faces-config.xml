@@ -4,6 +4,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
 	version="2.1">
+	
+		<managed-bean>
+		<managed-bean-name>amministratoreController</managed-bean-name>
+		<managed-bean-class>it.uniroma3.controller.AmministratoreController</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
 	<managed-bean>
 		<managed-bean-name>squadraController</managed-bean-name>
 		<managed-bean-class>it.uniroma3.controller.SquadraController</managed-bean-class>
@@ -193,8 +200,8 @@
 	<navigation-rule>
 		<from-view-id>/amministratoreHome.jsp</from-view-id>
 		<navigation-case>
-			<from-outcome>confermaCalendario</from-outcome>
-			<to-view-id>/confermaCalendario.jsp</to-view-id>
+			<from-outcome>generaCalendario</from-outcome>
+			<to-view-id>/generaCalendario.jsp</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>calendarioSvuotato</from-outcome>
@@ -209,20 +216,32 @@
 			<to-view-id>/index.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+		<navigation-rule>
+		<from-view-id>/registraAmministratore.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>amministratoreCreato</from-outcome>
+			<to-view-id>/amministratoreCreato.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/generaCalendario.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>confermaCalendario</from-outcome>
+			<to-view-id>/confermaCalendario.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 	<navigation-rule>
 		<from-view-id>/loginAmministratore.jsp</from-view-id>
 		<navigation-case>
-			<from-outcome>loginAmministratore</from-outcome>
+			<from-outcome>amministratoreHome</from-outcome>
 			<to-view-id>/amministratoreHome.jsp</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>squadre</from-outcome>
-			<to-view-id>/squadre.jsp</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>logout</from-outcome>
-			<to-view-id>/index.jsp</to-view-id>
+			<from-outcome>riprovaLoginAdmin</from-outcome>
+			<to-view-id>/riprovaLoginAdmin.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
@@ -231,6 +250,14 @@
 		<navigation-case>
 			<from-outcome>logged</from-outcome>
 			<to-view-id>/index.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+		<navigation-rule>
+		<from-view-id>/riprovaLoginAdmin.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>amministratoreHome</from-outcome>
+			<to-view-id>/amministratoreHome.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

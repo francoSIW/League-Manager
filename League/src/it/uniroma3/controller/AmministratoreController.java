@@ -12,35 +12,34 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.NoResultException;
 
-@ManagedBean(name="AmministratoreController")
+@ManagedBean
 @SessionScoped
-public class AmministratoreController implements Serializable {
+public class AmministratoreController {
 
-	public AmministratoreController() {	}
-	/**
-	 * 
-	 */
+	private static String predefinitoPin = "admin";
+	private static String predefinitaPass = "admin";
+
 	@ManagedProperty(value="#{param.id}")
-
-	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String nome;
 	private String cognome;
-	private Integer pin;
+	private String pin;
 	private String password;
+	private Amministratore amministratore;
+	private List<Amministratore> amministratori;
 
-	private Amministratore admin ;
-	private List<Amministratore>admins ;
 
-	private AmministratoreFacade adminFacade;
-	private boolean loggedIn;
+	public Amministratore getAmministratore() {
+		return amministratore;
+	}
 
+	public void setAmministratore(Amministratore amministratore) {
+		this.amministratore = amministratore;
+	}
 	@EJB(beanName="amministratoreFacade")
+	private AmministratoreFacade amministratoreFacade;
 
-	private static final Integer predefinitoPin = 123456; //che fantasia
-	private static final String predefinitaPass = "league";
-	private static final Amministratore pre = new Amministratore("nomePredefinito", "cognomepredefinito",predefinitoPin,predefinitaPass);
 
 
 	public String redirectToLogin() {
@@ -61,44 +60,65 @@ public class AmministratoreController implements Serializable {
 	}
 
 
-	public String login(Amministratore a) {
+	public String login() {
+		this.amministratore = amministratoreFacade.findAdminByPin(this.pin);
 
-		if (predefinitoPin == a.getPin() && (predefinitaPass.equals(a.getPassword()))){
-			this.loggedIn = true;
-			return "amministratoreHome";}
-		else
-			try{
-				boolean inDB = 	this.adminFacade.findAdminByPin(a.getPin()).getPassword().equals(a.getPassword());
-				if(inDB) {
-					this.loggedIn = true ;
+		if (predefinitoPin.equals(this.pin)) {
+
+			if (this.amministratore != null) {
+
+				if(this.password.equals(this.amministratore.getPassword()))
+					return "amministratoreHome";
+				else
+					return "riprovaLoginAdmin";
+			}
+
+			else {
+
+				if(this.password.equals(predefinitaPass)) {
+					this.amministratoreFacade.createAmministratore("nomeDefault", "cognomeDefault", this.pin, this.password);
 					return "amministratoreHome";
 				}
-				else return "loginAmministratore";
+				else 
+					return "riprovaLoginAdmin";
 			}
-		catch(NoResultException e){
-			return "loginAmministratore";}
-
-	}
-
-	public String doLogout() {
-		// Set the paremeter indicating that user is logged in to false
-		this.loggedIn = false;
+		}
 
 
-		return "loginAmministratore";
-	}
+		else { 
 
-	public Amministratore getAdmin() {
-		return admin;
+			if(this.amministratore != null) {
+				if(this.password.equals(this.amministratore.getPassword()))
+					return "amministratoreHome";
+				else
+					return "riprovaLoginAdmin";
+
+			}
+			else {
+				return "riprovaLoginAdmin";
+			}
+		}
+
 	}
-	public void setAdmin(Amministratore admin) {
-		this.admin = admin;
+	
+	public String registraAmministratore() {
+		
+		amministratoreFacade.createAmministratore(this.nome, this.cognome, this.pin, this.password);
+		return "amministratoreCreato";
+		
 	}
-	public List<Amministratore> getAdmins() {
-		return admins;
+	
+	public String logout() {
+		this.amministratore = null;
+		return "logout";
 	}
-	public void setAdmins(List<Amministratore> admins) {
-		this.admins = admins;
+	
+
+	public List<Amministratore> getAmministratori() {
+		return amministratori;
+	}
+	public void setAmministratori(List<Amministratore> amministratori) {
+		this.amministratori = amministratori;
 	}
 	public Long getId() {
 		return id;
@@ -118,10 +138,10 @@ public class AmministratoreController implements Serializable {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	public Integer getPin() {
+	public String getPin() {
 		return pin;
 	}
-	public void setPin(Integer pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
 	public String getPassword() {
@@ -130,25 +150,15 @@ public class AmministratoreController implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+
+	public AmministratoreFacade getAmministratoreFacade() {
+		return amministratoreFacade;
 	}
 
-	public AmministratoreFacade getAdminFacade() {
-		return adminFacade;
+	public void setAmministratoreFacade(AmministratoreFacade amministratoreFacade) {
+		this.amministratoreFacade = amministratoreFacade;
 	}
 
-	public void setAdminFacade(AmministratoreFacade adminFacade) {
-		this.adminFacade = adminFacade;
-	}
-
-	public boolean isLoggedIn() {
-
-		return this.loggedIn;
-	}
-	public void setLoggedIn(boolean loggedIn) {
-		this.loggedIn = loggedIn;
-	} 
 
 
 }

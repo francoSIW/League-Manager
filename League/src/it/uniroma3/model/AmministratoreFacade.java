@@ -18,12 +18,23 @@ public class AmministratoreFacade {
 	@PersistenceContext(unitName = "league-unit")
 	private EntityManager em;
 
-	public Amministratore createAmministratore(String nome, String cognome, Integer pin,
+	
+	public Amministratore autentica(String pin, String password){
+		Amministratore amministratore = this.findAdminByPin(pin);
+		if(amministratore==null)
+			return null;
+		else if(amministratore.getPassword().equals(password))
+			return amministratore;
+		else
+			return null;
+	}
+	
+	public Amministratore createAmministratore(String nome, String cognome, String pin,
 			String password){
 
-		Amministratore a = new Amministratore(nome, cognome, pin, password);
-		em.persist(a);
-		return a ;
+		Amministratore amministratore = new Amministratore(nome, cognome, pin, password);
+		em.persist(amministratore);
+		return amministratore;
 	}
 	//	  public boolean contain(Amministratore admin){
 	//		  return this.predefiniti.containsKey(admin.getPin()) ;//&& getAllAmministratori
@@ -37,11 +48,18 @@ public class AmministratoreFacade {
 		return l;
 	}
 
-	public Amministratore findAdminByPin(Integer pin) throws NoResultException{
-		TypedQuery<Amministratore> q = em.createNamedQuery("findAdminByPin",Amministratore.class);
-		q.setParameter("pin",pin);
-		return q.getSingleResult();
+	public Amministratore findAdminByPin(String pin)  {
+		Query trovaAmministratore = em.createNamedQuery("findAdminByPin");
+		trovaAmministratore.setParameter("pin", pin);
+		Amministratore amministratore;
+		try {
 
+		amministratore = (Amministratore)trovaAmministratore.getSingleResult();
+		}
+		catch (Exception e) {
+			amministratore = null;
+		}
+		return amministratore;
 	}
 
 }

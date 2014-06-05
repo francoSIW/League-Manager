@@ -20,6 +20,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class ResponsabileController {
+	
 	@ManagedProperty(value="#{param.id}")
 
 	private Long id;

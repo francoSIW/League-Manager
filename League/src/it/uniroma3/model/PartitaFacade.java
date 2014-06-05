@@ -88,8 +88,10 @@ public class PartitaFacade {
 		//set gol
 		partita.getSquadraCasa().setFatti(partita.getSquadraCasa().getFatti()+partita.getPuntiCasa());
 		partita.getSquadraCasa().setSubiti(partita.getSquadraCasa().getSubiti()+partita.getPuntiOspiti());
+		partita.getSquadraCasa().setDiff(partita.getSquadraCasa().getFatti() - partita.getSquadraCasa().getSubiti());
 		partita.getSquadraOspiti().setFatti(partita.getSquadraOspiti().getFatti()+partita.getPuntiOspiti());
 		partita.getSquadraOspiti().setSubiti(partita.getSquadraOspiti().getSubiti()+partita.getPuntiCasa());
+		partita.getSquadraOspiti().setDiff(partita.getSquadraOspiti().getFatti() - partita.getSquadraOspiti().getSubiti());
 		
 		
 		em.merge(partita);
@@ -114,9 +116,9 @@ public class PartitaFacade {
 	}
 
 
-	public List<Partita> generaPartite(List<Squadra> squadre){
+	public List<Partita> generaPartite(List<Squadra> squadre, Date date){
 
-		Date date = new Date(114, 06, 02, 21, 00);
+		Date inizio = date;
 		Date fineCampionato = DateUtils.addDays(date, 7*((squadre.size()-2)));
 
 
@@ -155,11 +157,11 @@ public class PartitaFacade {
 							date = DateUtils.addDays(date, 7);
 
 					}
-					date = new Date(114, 06, 02, 21, 00);
+					date = inizio;
 
 				}
 			}
-			date = new Date(114, 06, 02, 21, 00);
+			date = inizio;
 		}
 		return getAllPartiteDaDisputare();      
 	}
@@ -170,6 +172,13 @@ public class PartitaFacade {
 		
 	}
 
+	public boolean calendarioGiaGenerato() {
+		Query trovaPartite = em.createNamedQuery("getAllPartite");
+		return !trovaPartite.getResultList().isEmpty();
+
+		
+		
+	}
 
 	public  void createPartita(String luogo, Squadra squadraA,	Squadra squadraB, Date data) {
 		Partita partita = new Partita(luogo, squadraA , squadraB, data);

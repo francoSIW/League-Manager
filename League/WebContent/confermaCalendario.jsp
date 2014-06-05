@@ -7,16 +7,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>LEAGUE MANAGER - CALENDARIO</title>
+<title>LEAGUE MANAGER - CALENDARIO CREATO!</title>
 </head>
 <body style="background-color: #a8f7ff;">
 	<f:view>
-		<h1>Calendario creato!</h1>
+		<h1>Calendario creato con successo!</h1>
 		<ul>
 			<li><h:form>
 					<h:commandLink action="#{partitaController.listaPartite}"
 						value="Visualizza Partite" />
 				</h:form></li>
+			<li><a href='<c:url value="/faces/amministratoreHome.jsp" />'>Torna
+					al Pannello di Controllo</a></li>
 		</ul>
 	</f:view>
 </body>

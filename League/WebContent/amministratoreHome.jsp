@@ -13,25 +13,28 @@
 	<f:view>
 		<h:form>
 			<c:choose>
-				<c:when test="${amministratoreController.amministratore == null}">
+				<c:when test="${amministratoreController.amministratore != null}">
 					<h1>Bentornato
 						${amministratoreController.amministratore.nome}!</h1>
 					<h2>Pannello di controllo:</h2>
 					<ul>
-
-						<li><h:commandLink
-								action="#{partitaController.generaPartite(squadraController.getAllSquadre())}"
-								value="Chiudi iscrizioni e genera Calendario">
-							</h:commandLink></li>
-						<li><h:commandLink
-								action="#{partitaController.svuotaCalendario}"
-								value="svuota Calendario">
-							</h:commandLink></li>
-							<li><h:commandLink action="#{squadraController.resetSquadre}"
+						<c:if test="${partitaController.calendarioGiaGenerato() == false}">
+													<li><a href='<c:url value="/faces/generaCalendario.jsp" />'>
+						Chiudi le iscrizioni e genera il Calendario</a></li>
+						</c:if>
+						<c:if test="${partitaController.calendarioGiaGenerato() == true}">
+							<li><h:commandLink
+									action="#{partitaController.svuotaCalendario}"
+									value="svuota Calendario">
+								</h:commandLink></li>
+						</c:if>
+						<li><h:commandLink action="#{squadraController.resetSquadre}"
 								value="Reset Squadre" /></li>
 						<li><h:commandLink action="#{squadraController.listaSquadre}"
 								value="Visualizza Classifica" /></li>
-						<li><h:commandLink action="#{responsabileController.logout}"
+						<li><a href='<c:url value="/faces/registrazioneAmministratore.jsp" />'>
+						Registra un altro Amministratore</a></li>
+						<li><h:commandLink action="#{amministratoreController.logout}"
 								value="Logout" /></li>
 
 					</ul>

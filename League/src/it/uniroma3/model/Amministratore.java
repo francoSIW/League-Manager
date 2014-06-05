@@ -14,8 +14,8 @@ import org.apache.openjpa.persistence.jdbc.Unique;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "findAll", query = "SELECT s FROM Amministratore s"),
-	@NamedQuery(name = "findAdminByPin", query = "SELECT s FROM Amministratore s WHERE s.pin LIKE :pin"),
+	@NamedQuery(name = "findAll", query = "SELECT a FROM Amministratore a"),
+	@NamedQuery(name = "findAdminByPin", query = "SELECT a FROM Amministratore a WHERE a.pin = :pin"),
 })
 @Table (name = "Amministratore" ,uniqueConstraints= @UniqueConstraint(columnNames={"pin"}))
 public class Amministratore {
@@ -33,12 +33,11 @@ public class Amministratore {
 	private String cognome;
 	@Column(nullable=false)
 	@Unique
-	private Integer pin;
+	private String pin;
 	@Column(nullable=false)
 	private String password;
 
-	public Amministratore(String nome, String cognome, Integer pin,
-			String password) {
+	public Amministratore(String nome, String cognome, String pin, String password) {
 		super();
 		this.nome = nome;
 		this.cognome = cognome;
@@ -66,10 +65,10 @@ public class Amministratore {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	public Integer getPin() {
+	public String getPin() {
 		return pin;
 	}
-	public void setPin(Integer pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
 	public String getPassword() {

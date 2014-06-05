@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.persistence.*;
 
 @Entity
-@NamedQuery(name = "trovaSquadre", query = "SELECT s FROM Squadra s ORDER BY s.punti DESC")
+@NamedQuery(name = "trovaSquadre", query = "SELECT s FROM Squadra s ORDER BY s.punti DESC, s.diff DESC, s.fatti DESC, s.subiti ASC, s.vinte DESC, s.nome ASC")
 @Table(name="squadre")
 public class Squadra {
 
@@ -44,6 +44,9 @@ public class Squadra {
 	private Integer subiti;
 	
 	@Column
+	private Integer diff;
+	
+	@Column
 	private Integer punti;
 
 
@@ -73,8 +76,18 @@ public class Squadra {
 		this.perse = 0;
 		this.fatti = 0;
 		this.subiti = 0;
+		this.subiti = 0;
+		this.diff = 0;
 		this.responsabile = responsabile;
 		this.giocatori = new ArrayList<Giocatore>();
+	}
+
+	public Integer getDiff() {
+		return diff;
+	}
+
+	public void setDiff(Integer diff) {
+		this.diff = diff;
 	}
 
 	public String getNome() {

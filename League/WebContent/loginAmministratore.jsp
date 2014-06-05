@@ -7,25 +7,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>LEAGUE MANAGER - ACCEDI COME AMMINISTRATORE</title>
 </head>
 <body>
+	<h3>Inserisci le tue credenziali di Amministratore:</h3>
 	<f:view>
 		<h:form id="login-form">
-			<h:outputText value="pin:" />
-			<h:inputText value="#{AmministratoreController.pin}" id="pin"
-				required="true" requiredMessage="Questo campo è obbligatorio!" />
-			<h:message for="pin" />
-			<br />
-			<h:outputText value="password:" />
-			<h:inputSecret value="#{AmministratoreController.password}" id="password"
-				required="true" requiredMessage="Questo campo è obbligatorio!" />
-			<h:message for="password" />
-			<br />
-			<h:commandButton id="button" value="Login"
-				action="#{AmministratoreController.login}" />
-			<br />
-			<h:messages />
+
+			<div>
+				Pin: 
+				<h:inputText value="#{amministratoreController.pin}" required="true"
+					requiredMessage="Questo campo è obbligatorio!" id="pin" />
+				<h:message for="pin" />
+			</div>
+			<div>
+				Password: 
+				<h:inputSecret value="#{amministratoreController.password}"
+					required="true" requiredMessage="Questo campo è obbligatorio!"
+					id="password">
+				</h:inputSecret>
+				<h:message for="password" />
+			</div>
+			<div>
+
+				<h:commandButton value="login"
+					action="#{amministratoreController.login}" />
+
+			</div>
+
 			<br />
 
 			<a href='<c:url value="/faces/index.jsp" />'>Torna alla HomePage</a>

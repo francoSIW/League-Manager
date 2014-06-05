@@ -4,6 +4,8 @@ import it.uniroma3.model.GiocatoreFacade;
 import it.uniroma3.model.PartitaFacade;
 import it.uniroma3.model.Squadra;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +32,15 @@ public class PartitaController {
 	private Partita partita ;
 	private Integer puntiCasa;
 	private Integer puntiOspiti;
-	private Calendar data;
+	private Integer giorno;
+	private Integer mese;
+	private Integer anno;
+	private Integer ora;
+	private Integer minuti;
+
+
+
+
 	private Squadra squadraA;
 	private Squadra squadraB;
 
@@ -69,15 +79,24 @@ public class PartitaController {
 	}
 
 	public String generaPartite(List<Squadra> squadre) {
-		partitaFacade.generaPartite(squadre);
+
+		Date data = new Date(anno - 1900, mese - 1, giorno, ora, minuti);
+		partitaFacade.generaPartite(squadre, data);
 		return "confermaCalendario";
+	}
+
+	public boolean calendarioGiaGenerato() {
+		return partitaFacade.calendarioGiaGenerato();
 	}
 
 	public String svuotaCalendario() {
 		partitaFacade.svuotaCalendario();
+		this.giorno = null;
+		this.mese = null;
+		this.anno = null;
 		return "calendarioSvuotato";
 	}
-	
+
 	public String findPartita(long id){
 		this.partita = this.partitaFacade.getPartita(id);
 		return "partita";
@@ -89,12 +108,7 @@ public class PartitaController {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Calendar getData() {
-		return data;
-	}
-	public void setData(Calendar data) {
-		this.data = data;
-	}
+
 	public String getLuogo() {
 		return luogo;
 	}
@@ -142,5 +156,43 @@ public class PartitaController {
 	public void setPartita(Partita partita) {
 		this.partita = partita;
 	}
+	public Integer getGiorno() {
+		return giorno;
+	}
 
+	public void setGiorno(Integer giorno) {
+		this.giorno = giorno;
+	}
+
+	public Integer getMese() {
+		return mese;
+	}
+
+	public void setMese(Integer mese) {
+		this.mese = mese;
+	}
+
+	public Integer getAnno() {
+		return anno;
+	}
+
+	public void setAnno(Integer anno) {
+		this.anno = anno;
+	}
+	
+	public Integer getOra() {
+		return ora;
+	}
+
+	public void setOra(Integer ora) {
+		this.ora = ora;
+	}
+
+	public Integer getMinuti() {
+		return minuti;
+	}
+
+	public void setMinuti(Integer minuti) {
+		this.minuti = minuti;
+	}
 }

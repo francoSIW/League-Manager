@@ -18,27 +18,27 @@
 			<div>
 				Nome:
 				<h:inputText value="#{responsabileController.nome}" required="true"
-					requiredMessage="Name is mandatory" id="name" />
+					requiredMessage="Questo campo e' obbligatorio!" id="name" />
 				<h:message for="name" />
 			</div>
 			<div>
 				Cognome:
 				<h:inputText value="#{responsabileController.cognome}"
-					required="true" requiredMessage="Code is mandatory" id="code" />
+					required="true" requiredMessage="Questo campo e' obbligatorio!" id="code" />
 				<h:message for="code" />
 			</div>
 
 			<div>
 				e-mail:
 				<h:inputText value="#{responsabileController.email}" required="true"
-					requiredMessage="email is mandatory" id="email" />
+					requiredMessage="Questo campo e' obbligatorio!" id="email" />
 				<h:message for="email" />
 			</div>
 			<div>
 				password:
 				<h:inputSecret value="#{responsabileController.password}"
-					required="true" requiredMessage="password is mandatory"
-					validatorMessage="password must contain at least 8 characters"
+					required="true" requiredMessage="Questo campo e' obbligatorio!"
+					validatorMessage="La password deve contenere almeno 8 caratteri."
 					id="password">
 					<f:validateLength minimum="8" />
 				</h:inputSecret>
@@ -52,7 +52,5 @@
 			<li><a href='index.html'>Torna alla Home</a></li>
 		</h:form>
 	</f:view>
-</body>
-
 </body>
 </html>

@@ -10,21 +10,22 @@
 <title>LEAGUE MANAGER - OPS!</title>
 </head>
 <body style="background-color: #a8f7ff;">
-	<h1>qualcosa e' andato storto..</h1>
+	<h1>Qualcosa e' andato storto..</h1>
 	<f:view>
 		<h:form>
 			<div>
-				e-mail:
+				Reinserisci l'e-mail:
 				<h:inputText value="#{responsabileController.email}" required="true"
-					requiredMessage="email is mandatory" id="email" />
+					requiredMessage="Questo campo e' obbligatorio!" id="email" />
 				<h:message for="email" />
 			</div>
 
 			<div>
-				reinserisci la password:
+				Reinserisci la password:
 				<h:inputSecret value="#{responsabileController.password}"
-					required="true" requiredMessage="password is mandatory"
-					validatorMessage="password: min 6 max 10 characters" id="password">
+					required="true" requiredMessage="Questo campo e' obbligatorio!"
+					validatorMessage="La password deve contenere almeno 8 caratteri."
+					id="password">
 					<f:validateLength minimum="6" maximum="10" />
 				</h:inputSecret>
 				<h:message for="password" />
@@ -32,6 +33,8 @@
 			<div>
 				<h:commandButton value="login"
 					action="#{responsabileController.login}" />
+
+				<a href='<c:url value="/faces/index.jsp" />'>Torna alla HomePage</a>
 
 			</div>
 		</h:form>

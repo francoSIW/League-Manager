@@ -35,7 +35,7 @@
 						<td align=center>${squadra.perse}</td>
 						<td align=center>${squadra.fatti}</td>
 						<td align=center>${squadra.subiti}</td>
-						<td align=center>${squadraController.calcolaDifferenzaReti(squadra.fatti, squadra.subiti)}</td>
+						<td align=center>${squadra.diff}</td>
 						<td align=center>${squadra.punti}</td>
 					</tr>
 				</c:forEach>

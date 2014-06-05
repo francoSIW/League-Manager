@@ -70,8 +70,13 @@
 			<br>
 			<br>
 			<br>
-			
+			<c:choose>
+			<c:when test="${amministratoreController.amministratore == null}">
 			<a href='<c:url value="/faces/loginAmministratore.jsp" />'>Accedi come Amministratore</a>
+			</c:when>
+			<c:otherwise>
+			<a href='<c:url value="/faces/amministratoreHome.jsp" />'>Vai al Pannello di Controllo</a>
+			</c:otherwise></c:choose>
 
 	</f:view>
 </body>
