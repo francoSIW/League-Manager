@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
-
+//commento
 @Entity
 @NamedQueries({
 @NamedQuery(name = "trovaSquadraInPartita", query = "SELECT p FROM Partita p WHERE p.data = :data AND (p.squadraCasa = :squadraCasa OR p.squadraOspiti = :squadraOspiti)"),
